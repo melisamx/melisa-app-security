@@ -8,7 +8,7 @@ class ModulesPhoneSeeder extends Seeder
     public function run()
     {
         
-        
+        $this->call(Phone\PasswordlessViewSeeder::class);
         
     }
     
