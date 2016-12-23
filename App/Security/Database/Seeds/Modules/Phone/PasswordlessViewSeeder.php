@@ -28,7 +28,10 @@ class PasswordlessViewSeeder extends InstallSeeder
                 'option'=>[
                     'key'=>'option.security.phone.passwordless.view.access',
                     'name'=>'Opción para ver autentificaciones de usuarios con enlace magico via correo electronico en la versión phone',
-                    'text'=>'Passwordless'
+                    'text'=>'Passwordless',
+                    'iconClassSmall'=>'x-fa fa fa-key',
+                    'iconClassMedium'=>'x-fa fa fa-key',
+                    'iconClassLarge'=>'x-fa fa fa-key',
                 ],
                 'event'=>[
                     'key'=>'event.security.passwordless.view.access',
