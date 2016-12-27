@@ -28,6 +28,15 @@ Ext.define('Melisa.security.view.phone.passwordless.view.EmailsList', {
     ],
     listeners: {
         itemtaphold: 'onItemtapholdLisEmails'
-    }
+    },
+    plugins: [
+        {
+            xclass: 'Ext.plugin.ListPaging',
+            autoPaging: true
+        },
+        {
+            xclass: 'Ext.plugin.PullRefresh'
+        }
+    ]
     
 });

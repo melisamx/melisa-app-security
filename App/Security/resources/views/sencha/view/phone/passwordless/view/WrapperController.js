@@ -11,8 +11,8 @@ Ext.define('Melisa.security.view.phone.passwordless.view.WrapperController', {
         var me = this,
             model = me.getViewModel();
         
-        model.getStore('passwordless').setData(jsf(model.get('faker.passwordless')));
-        model.getStore('emails').setData(jsf(model.get('faker.emails')));
+//        model.getStore('passwordless').setData(jsf(model.get('faker.passwordless')));
+//        model.getStore('emails').setData(jsf(model.get('faker.emails')));
         
     },
     
@@ -25,16 +25,20 @@ Ext.define('Melisa.security.view.phone.passwordless.view.WrapperController', {
             nameSpace: 'Melisa.security.view.phone.passwordless.add.Wrapper'
         }, function(instance) {
             
-            view.add(instance)
+            view.add(instance);
             view.setActiveItem(instance);
             
         });
         
     },
     
-    onDiscloseLisPasswordless: function() {
+    onDiscloseLisPasswordless: function(lis, record) {
         
-        this.navigateTo('lisEmails');
+        var me = this,
+            model = me.getViewModel();
+        
+        model.set('idPasswordless', record.get('id'));
+        me.navigateTo('lisEmails');       
         
     },
     

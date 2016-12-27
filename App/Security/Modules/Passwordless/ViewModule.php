@@ -27,8 +27,8 @@ class ViewModule extends Outbuildings
                     ]
                 ],
                 'urls'=>[
-                    'passwordless'=>'',
-                    'emails'=>'',
+                    'passwordless'=>'/security.php/passwordless/paging/',
+                    'emails'=>'/security.php/passwordlessEmails/paging/',
                 ],
                 'faker'=>[
                     'passwordless'=>$this->fakerPasswordless(),

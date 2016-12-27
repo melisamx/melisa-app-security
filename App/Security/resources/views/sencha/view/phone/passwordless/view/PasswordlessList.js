@@ -1,10 +1,10 @@
 Ext.define('Melisa.security.view.phone.passwordless.view.PasswordlessList', {
     extend: 'Ext.List',
-    alias: 'widget.securitypasswordlesslist',
-    
+    alias: 'widget.securitypasswordlesslist',    
     reference: 'lisPasswordless',
-    loadingText: 'Obteniendo lista de chats',
-    emptyText: 'No hay chats',
+    
+    loadingText: 'Obteniendo lista de passwordless',
+    emptyText: 'No hay passwordless registrados',
     hideAnimation: 'fadeOut',
     cls: 'passwordlesss-list',
     deferEmptyText: true,
@@ -29,6 +29,15 @@ Ext.define('Melisa.security.view.phone.passwordless.view.PasswordlessList', {
     listeners: {
         disclose: 'onDiscloseLisPasswordless',
         itemtaphold: 'onItemtapholdLisPasswordless'
-    }
+    },
+    plugins: [
+        {
+            xclass: 'Ext.plugin.ListPaging',
+            autoPaging: true
+        },
+        {
+            xclass: 'Ext.plugin.PullRefresh'
+        }
+    ]
     
 });
