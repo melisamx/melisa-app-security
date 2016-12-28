@@ -2,6 +2,7 @@
 
 use Melisa\Laravel\Http\Controllers\Controller;
 use App\Security\Modules\Passwordless\ViewModule;
+use App\Security\Modules\Passwordless\AddModule;
 
 /**
  * 
@@ -12,6 +13,13 @@ class PasswordlessController extends Controller
 {
     
     public function viewPhone(ViewModule $module)
+    {
+        
+        return $module->render();
+        
+    }
+    
+    public function addPhone(AddModule $module)
     {
         
         return $module->render();

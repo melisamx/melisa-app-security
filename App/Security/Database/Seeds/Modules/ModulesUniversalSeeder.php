@@ -2,14 +2,13 @@
 
 use Illuminate\Database\Seeder;
 
-class ModulesPhoneSeeder extends Seeder
+class ModulesUniversalSeeder extends Seeder
 {
     
     public function run()
     {
         
-        $this->call(Phone\PasswordlessViewSeeder::class);
-        $this->call(Phone\PasswordlessAddSeeder::class);
+        $this->call(Universal\PasswordlessCreateSeeder::class);
         
     }
     

@@ -7,35 +7,23 @@ use App\Core\Logics\Modules\Outbuildings;
  *
  * @author Luis Josafat Heredia Contreras
  */
-class ViewModule extends Outbuildings
+class AddModule extends Outbuildings
 {
     
     public function dataDictionary() {
         
         return [
             'success'=>true,
-            'assets'=>[
-                $this->asset('asset.security.phone.passwordless.view')
-            ],
             'data'=>[
+                'token'=>csrf_token(),
                 'wrapper'=>[
-                    'title'=>'Passwordless',
+                    'title'=>'Agregar Passwordless',
                 ],
                 'modules'=>[
-                    'add'=>$this->module('task.security.phone.passwordless.add.access', false)
+                    'create'=>$this->module('task.security.passwordless.create')
                 ],
                 'i18n'=>[
-                    'lisEmails'=>[
-                        'title'=>'Emails permitidos'
-                    ]
-                ],
-                'urls'=>[
-                    'passwordless'=>'/security.php/passwordless/paging/',
-                    'emails'=>'/security.php/passwordlessEmails/paging/',
-                ],
-                'faker'=>[
-                    'passwordless'=>$this->fakerPasswordless(),
-                    'emails'=>$this->fakerEmails(),
+                    'saving'=>'Guardando passworless'
                 ]
             ]
         ];

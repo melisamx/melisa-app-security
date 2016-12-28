@@ -3,6 +3,7 @@ Ext.define('Melisa.security.view.phone.passwordless.add.Wrapper', {
     
     requires: [
         'Melisa.security.view.phone.passwordless.add.Title',
+        'Melisa.security.view.phone.passwordless.add.WrapperController',
         'Melisa.core.Module'
     ],
     
@@ -10,8 +11,12 @@ Ext.define('Melisa.security.view.phone.passwordless.add.Wrapper', {
         'Melisa.core.Module'
     ],
     
+    controller: 'securitypassworlessadd',
     bodyPadding: 15,
     viewModel: {},
+    bind: {
+        url: '{modules.create}'
+    },
     items: [
         {
             xtype: 'securitypasswordlessaddtitle'
@@ -23,7 +28,8 @@ Ext.define('Melisa.security.view.phone.passwordless.add.Wrapper', {
             label: 'Nombre'
         },
         {
-            xtype: 'checkboxfield',
+            xtype: 'togglefield',
+            labelAlign: 'left',
             name: 'active',
             label: 'Activo'
         }

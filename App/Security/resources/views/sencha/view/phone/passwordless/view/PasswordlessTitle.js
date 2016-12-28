@@ -16,8 +16,12 @@ Ext.define('Melisa.security.view.phone.passwordless.view.PasswordlessTitle', {
         {
             align: 'right',
             iconCls: 'x-fa fa fa-plus',
+            bind: {
+                melisa: '{modules.add}',
+                hidden: '{!modules.add.allowed}'
+            },
             listeners: {
-                tap: 'onTapBtnAddPasswordless'
+                tap: 'moduleRun'
             }
         }
     ]

@@ -1,5 +1,11 @@
 <?php 
 
+Route::get('/test', function() {
+    return [
+        'success'=>true
+    ];
+});
+
 Route::group([
     'prefix'=>'modules',
     'namespace'=>'Modules'
@@ -13,7 +19,7 @@ Route::group([
     'prefix'=>'passwordless',
 ], function() {
     
-    Route::get('paging', 'PasswordlessController@paging');
+    require realpath(base_path() . '/routes/modules/passwordless.php');
     
 });
 

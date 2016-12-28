@@ -7,15 +7,18 @@ Ext.define('Melisa.security.view.phone.passwordless.add.Title', {
         {
             iconCls: 'x-fa fa fa-chevron-left',
             bind: {
-                text: '{i18n.wrapper.title}'
+                text: '{wrapper.title}'
             },
             listeners: {
-                tap: 'onTapBtnEmailsPermit'
+                tap: 'activateMainModule'
             }
         },
         {
             align: 'right',
-            iconCls: 'x-fa fa fa-floppy-o'
+            iconCls: 'x-fa fa fa-floppy-o',
+            listeners: {
+                tap: 'save'
+            }
         }
     ]
     

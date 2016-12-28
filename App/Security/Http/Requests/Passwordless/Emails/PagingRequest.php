@@ -17,7 +17,7 @@ class PagingRequest extends WithFilter
     ];
     
     public $rulesFilters = [
-        'idPasswordless'=>'required|exists:passwordless,id'
+        'idPasswordless'=>'required|alpha_dash|size:36|exists:passwordless,id'
     ];
     
 }
