@@ -7,7 +7,7 @@ abstract class TestCase extends \Illuminate\Foundation\Testing\TestCase
      *
      * @var string
      */
-    protected $baseUrl = 'https://developer.melisa.mx:8443';
+    protected $baseUrl = '';
 
     /**
      * Creates the application.
@@ -16,11 +16,14 @@ abstract class TestCase extends \Illuminate\Foundation\Testing\TestCase
      */
     public function createApplication()
     {
+        
         $app = require __DIR__.'/../../../bootstrap/security.php';
-
+        
         $app->make(\Illuminate\Contracts\Console\Kernel::class)->bootstrap();
-
+        $this->baseUrl = env('APP_URL');
+        
         return $app;
+        
     }
     
 }
