@@ -19,7 +19,8 @@ class WithUserCriteria extends Criteria
                 'passwordless.*',
                 'u.name as userName',
                 'u.email as userEmail',
-            ]);
+            ])
+            ->orderBy('passwordless.name');
         
     }
     

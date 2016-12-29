@@ -9,6 +9,7 @@ class ModulesUniversalSeeder extends Seeder
     {
         
         $this->call(Universal\PasswordlessCreateSeeder::class);
+        $this->call(Universal\UsersPagingSeeder::class);
         
     }
     

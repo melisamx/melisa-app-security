@@ -10,6 +10,7 @@ class ModulesPhoneSeeder extends Seeder
         
         $this->call(Phone\PasswordlessViewSeeder::class);
         $this->call(Phone\PasswordlessAddSeeder::class);
+        $this->call(Phone\UsersSelectSeeder::class);
         
     }
     

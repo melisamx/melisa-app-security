@@ -7,17 +7,15 @@ use App\Security\tests\TestCase;
 
 class ExampleTest extends TestCase
 {
-    /**
-     * A basic functional test example.
-     *
-     * @return void
-     */
+    
     public function testBasicExample()
     {
+        
         $this->visit('/test')
              ->seeJson([
                  'success'=>true
              ]);
+        
     }
     
 }

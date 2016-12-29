@@ -20,7 +20,8 @@ class AddModule extends Outbuildings
                     'title'=>'Agregar Passwordless',
                 ],
                 'modules'=>[
-                    'create'=>$this->module('task.security.passwordless.create')
+                    'create'=>$this->module('task.security.passwordless.create'),
+                    'selectUser'=>$this->module('task.security.phone.users.select.access', false),
                 ],
                 'i18n'=>[
                     'saving'=>'Guardando passworless'

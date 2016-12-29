@@ -1,4 +1,4 @@
-<?php namespace App\Security\tests\Passwordless;
+<?php namespace App\Security\tests\Users;
 
 use App\Security\tests\TestCase;
 
@@ -8,7 +8,7 @@ class PagingTest extends TestCase
     public function testSimple()
     {
         
-        $this->json('get', 'passwordless/paging/', [
+        $this->json('get', 'users/', [
             'page'=>1,
             'start'=>0,
             'limit'=>25,
@@ -19,7 +19,7 @@ class PagingTest extends TestCase
         ->seeJsonStructure([
             'data'=>[
                 '*'=>[
-                    'id', 'userEmail'
+                    'id', 'name', 'email', 'active', 'createdAt', 'isSystem', 'isGod', 'firstLogin'
                 ]
             ],
             'total'

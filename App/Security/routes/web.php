@@ -30,3 +30,11 @@ Route::group([
     Route::get('paging', 'PasswordlessEmailsController@paging');
     
 });
+
+Route::group([
+    'prefix'=>'users',
+], function() {
+    
+    require realpath(base_path() . '/routes/modules/users.php');
+    
+});

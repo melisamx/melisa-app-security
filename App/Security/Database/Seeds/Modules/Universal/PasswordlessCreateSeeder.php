@@ -15,13 +15,13 @@ class PasswordlessCreateSeeder extends InstallSeeder
         
         $this->installModule([
             [
-                'name'=>'Crear autentificaciones de usuarios con enlace magico via correo electronico versión phone',
+                'name'=>'Crear autentificaciones de usuarios con enlace magico via correo electronico',
                 'url'=>'/security.php/passwordless/',
-                'description'=>'Módulo para crear autentificaciones de usuarios con enlace magico via correo electronico  versión phone',
+                'description'=>'Módulo para crear autentificaciones de usuarios con enlace magico via correo electronico',
                 'task'=>[
                     'key'=>'task.security.passwordless.create',
-                    'name'=>'Acceso para crear autentificaciones de usuarios con enlace magico via correo electronico versión phone',
-                    'description'=>'Permitir crear autentificaciones de usuarios con enlace magico via correo electronico versión phone',
+                    'name'=>'Acceso para crear autentificaciones de usuarios con enlace magico via correo electronico',
+                    'description'=>'Permitir crear autentificaciones de usuarios con enlace magico via correo electronico',
                     'pattern'=>'create'
                 ],
                 'event'=>[
