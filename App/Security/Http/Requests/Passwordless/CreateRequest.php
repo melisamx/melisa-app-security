@@ -13,8 +13,9 @@ class CreateRequest extends Generic
     use BeforeSanitize;
     
     protected $rules = [
-        'name'=>'required|alpha_num',
+        'name'=>'required|string',
         'active'=>'required|boolean',
+        'idUser'=>'required|alpha_dash|size:36|exists:users,id',
     ];
     
     protected $sanitizes = [

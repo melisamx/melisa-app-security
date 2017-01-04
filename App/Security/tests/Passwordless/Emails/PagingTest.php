@@ -2,9 +2,11 @@
 
 use App\Security\tests\TestCase;
 use App\Security\Models\PasswordlessEmails;
+use Melisa\Laravel\Database\InstallUser;
 
 class PagingTest extends TestCase
 {
+    use InstallUser;
     
     public function getPasswordless()
     {
@@ -23,7 +25,10 @@ class PagingTest extends TestCase
         
         $passwordless = $this->getPasswordless();
         
-        $this->json('get', 'passwordlessEmails/paging/', [
+        $user = $this->findUser();
+        
+        $this->actingAs($user)
+        ->json('get', 'passwordlessEmails/paging/', [
             'page'=>1,
             'start'=>0,
             'limit'=>25,
@@ -61,7 +66,10 @@ class PagingTest extends TestCase
         $passwordless = $this->getPasswordless();
         $idNoExist = str_replace('-', 'c', $passwordless->idPasswordless);
         
-        $this->json('get', 'passwordlessEmails/paging/', [
+        $user = $this->findUser();
+        
+        $this->actingAs($user)
+        ->json('get', 'passwordlessEmails/paging/', [
             'page'=>1,
             'start'=>0,
             'limit'=>25,
@@ -88,7 +96,10 @@ class PagingTest extends TestCase
     public function testNoFilter()
     {
         
-        $this->json('get', 'passwordlessEmails/paging/', [
+        $user = $this->findUser();
+        
+        $this->actingAs($user)
+        ->json('get', 'passwordlessEmails/paging/', [
             'page'=>1,
             'start'=>0,
             'limit'=>25,
@@ -109,7 +120,10 @@ class PagingTest extends TestCase
     public function testNoPaging()
     {
         
-        $this->json('get', 'passwordlessEmails/paging/')
+        $user = $this->findUser();
+        
+        $this->actingAs($user)
+        ->json('get', 'passwordlessEmails/paging/')
         ->seeJson([
             'success'=>false,
         ])

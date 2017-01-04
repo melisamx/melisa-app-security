@@ -8,7 +8,8 @@ Route::get('/test', function() {
 
 Route::group([
     'prefix'=>'modules',
-    'namespace'=>'Modules'
+    'namespace'=>'Modules',
+    'middleware' => 'auth'
 ], function() {
     
     require realpath(base_path() . '/routes/modules.php');
@@ -17,6 +18,7 @@ Route::group([
 
 Route::group([
     'prefix'=>'passwordless',
+    'middleware' => 'auth'
 ], function() {
     
     require realpath(base_path() . '/routes/modules/passwordless.php');
@@ -25,6 +27,7 @@ Route::group([
 
 Route::group([
     'prefix'=>'passwordlessEmails',
+    'middleware' => 'auth'
 ], function() {
     
     Route::get('paging', 'PasswordlessEmailsController@paging');
@@ -33,6 +36,7 @@ Route::group([
 
 Route::group([
     'prefix'=>'users',
+    'middleware' => 'auth'
 ], function() {
     
     require realpath(base_path() . '/routes/modules/users.php');

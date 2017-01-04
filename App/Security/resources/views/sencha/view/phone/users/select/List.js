@@ -26,7 +26,7 @@ Ext.define('Melisa.security.view.phone.users.select.List', {
         '</div>'
     ],
     listeners: {
-        disclose: 'onDiscloseUser'
+        disclose: 'onDisclose'
     },
     plugins: [
         {

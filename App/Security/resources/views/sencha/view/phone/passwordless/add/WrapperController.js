@@ -11,27 +11,25 @@ Ext.define('Melisa.security.view.phone.passwordless.add.WrapperController', {
     ],
     
     listeners: {
-        selectuser: 'onSelectUser'
+        userselect: 'onSelectUser'
     },
     
-    onBtnTapSelectUser: function() {
-        
-        var me = this,
-            view = me.getView(),
-            usersSelect = view.down('securityusersselectwrapper');
-        
-        usersSelect.fireEvent('display', me, 'selectuser');
-        view.setActiveItem(usersSelect);
-        
-    },
-    
-    onSelectUser: function() {
+    onSelectUser: function(record) {
         
         var me = this,
             view = me.getView();
         
-        console.log('onSelectUser', arguments);
-        view.setActiveItem(0);
+        me.activateModule(view);
+        me.lookup('conUserSelected').setData(record.data);
+        
+    },
+    
+    onPitcherUserReady: function(module) {
+        
+        var me = this;
+        
+        module.fireEvent('display', me, 'userselect');
+        me.activateModule(module);
         
     }
     

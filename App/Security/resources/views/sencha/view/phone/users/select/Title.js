@@ -7,7 +7,7 @@ Ext.define('Melisa.security.view.phone.users.select.Title', {
         {
             iconCls: 'x-fa fa fa-chevron-left',
             listeners: {
-                tap: 'onDisclose'
+                tap: 'onCancelSelect'
             },
             bind: {
                 text: '{i18n.title}'

@@ -2,6 +2,10 @@ Ext.define('Melisa.security.view.phone.passwordless.add.Form', {
     extend: 'Ext.Container',
     alias: 'widget.securitypasswordlessform',
     
+    requires: [
+        'Melisa.view.phone.pitcher.Button'
+    ],
+    
     padding: 15,
     items: [
         {
@@ -17,16 +21,21 @@ Ext.define('Melisa.security.view.phone.passwordless.add.Form', {
             label: 'Activo'
         },
         {
-            xtype: 'button',
-            text: 'Seleccionar un usuario',
-            width: '100%',
-            listeners: {
-                tap: 'moduleRun'
-            },
+            xtype: 'pitcherbutton',
+            name: 'idUser',
+            text: 'Seleccionar usuario',
             bind: {
                 melisa: '{modules.selectUser}',
                 hidden: '{!modules.selectUser.allowed}'
+            },
+            listeners: {
+                readymodule: 'onPitcherUserReady'
             }
+        },
+        {
+            xtype: 'container',
+            reference: 'conUserSelected',
+            tpl: '<h2>{name}</h2><p>{email}</p>'
         }
     ]
 });

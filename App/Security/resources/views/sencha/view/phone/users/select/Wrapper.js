@@ -44,9 +44,6 @@ Ext.define('Melisa.security.view.phone.users.select.Wrapper', {
         {
             xtype: 'securityusersviewlist'
         }
-    ],
-    listeners: {
-        display: 'onDisplay'
-    }
+    ]
     
 });
