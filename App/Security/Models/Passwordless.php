@@ -4,23 +4,21 @@ use Melisa\Laravel\Models\BaseUuid;
 
 /**
  * 
- *
  * @author Luis Josafat Heredia Contreras
  */
 class Passwordless extends BaseUuid
 {
     
+    protected $connection = 'mysql';
+    
     protected $table = 'passwordless';
     
     protected $fillable = [
-        'id', 'idUser', 'idIdentityCreated', 'name', 'active', 
-        'createdAt', 'idIdentityUpdated', 'updatedAt'
+        'id', 'name', 'idIdentityCreated', 'idUser', 'active', 'createdAt', 'idIdentityUpdated', 'updatedAt'
     ];
     
-    public function user() {
-        
-        return $this->hasOne('App\Core\Models\Users', 'id', 'idUser');
-        
-    }
+    public $timestamps = true;
+    
+    /* incrementing */
     
 }

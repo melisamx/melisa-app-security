@@ -24,7 +24,7 @@ class CreateLogic
     public function init(array $input)
     {
         
-        if( !$this->isAllowed('app.security.passwordless.create')) {
+        if( !$this->isAllowed('gate.security.passwordless.create')) {
             
             return false;
             

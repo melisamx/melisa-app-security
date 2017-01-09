@@ -28,6 +28,10 @@ class PasswordlessCreateSeeder extends InstallSeeder
                     'key'=>'event.security.passwordless.create.success',
                     'description'=>'Autentificacion de usuario creada con enlace magico creada sastisfactoriamente'
                 ],
+                'gate'=>[
+                    'key'=>'gate.security.passwordless.create',
+                    'description'=>'Crear passwordless'
+                ]
             ],
         ]);
         

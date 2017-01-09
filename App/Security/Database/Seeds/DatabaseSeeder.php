@@ -11,6 +11,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ApplicationSeeder::class);
         $this->call(OptionsSeeder::class);
         $this->call(ModulesSeeder::class);
+        $this->call(DataSeeder::class);
         
     }
     
