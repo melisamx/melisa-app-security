@@ -1,20 +1,23 @@
 <?php namespace App\Security\Database\Seeds\Data;
 
 use Melisa\Laravel\Database\InstallSeeder;
+use App\Security\Models\Gates;
 
 /**
  * 
  * 
  * @author Luis Josafat Heredia Contreras
  */
-class GatesSystemsSeeder extends InstallSeeder
+class GatesSeeder extends InstallSeeder
 {
     
     public function run()
     {
         
-        $this->installGateSystem('gate.security.passwordless.create', 'usergod');
-        $this->installGateSystem('*', 'usergod');
+        Gates::updateOrCreate([
+            'key'=>'*',
+            'description'=>'All actions'
+        ]);
         
     }
     

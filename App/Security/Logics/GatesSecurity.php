@@ -1,4 +1,4 @@
-<?php namespace App\Security\Logics\Security;
+<?php namespace App\Security\Logics;
 
 use App\Security\Repositories\GatesRepository;
 use App\Security\Repositories\GatesSystemsRepository;
@@ -10,7 +10,7 @@ use Melisa\core\LogicBusiness;
  *
  * @author Luis Josafat Heredia Contreras
  */
-class Security
+class GatesSecurity
 {
     use LogicBusiness;
     
@@ -24,7 +24,7 @@ class Security
         
     }
     
-    public function init($gate) {
+    public function init($gate = '*') {
         
         $gate = $this->gates->findBy('key', $gate);
         
@@ -98,7 +98,7 @@ class Security
         
     }
     
-    public function isAllowed($gate)
+    public function isAllowed($gate = '*')
     {
         
         return $this->init($gate);
