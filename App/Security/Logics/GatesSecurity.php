@@ -24,14 +24,14 @@ class GatesSecurity
         
     }
     
-    public function init($gate = '*') {
+    public function init($gateKey = '*') {
         
-        $gate = $this->gates->findBy('key', $gate);
+        $gate = $this->gates->findBy('key', $gateKey);
         
         if( is_null($gate)) {
             
             $this->info('Gate {g} no exist, allowed action', [
-                'g'=>$gate
+                'g'=>$gateKey
             ]);
             
             return true;
