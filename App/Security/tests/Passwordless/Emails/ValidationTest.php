@@ -20,6 +20,7 @@ class ValidationTest extends TestCase
     
     /**
      * @test
+     * @group completed
      */
     public function noParameters()
     {
@@ -49,6 +50,7 @@ class ValidationTest extends TestCase
     
     /**
      * @test
+     * @group completed
      */
     public function failUnfiltered()
     {
@@ -71,6 +73,7 @@ class ValidationTest extends TestCase
     
     /**
      * @test
+     * @group completed
      */
     public function failPasswordlessDoesNotExist()
     {
@@ -102,6 +105,7 @@ class ValidationTest extends TestCase
     
     /**
      * @test
+     * @group completed
      */
     public function failFilterJsonInvalid()
     {
@@ -131,6 +135,7 @@ class ValidationTest extends TestCase
     
     /**
      * @test
+     * @group completed
      */
     public function failFilterNotAllowed()
     {

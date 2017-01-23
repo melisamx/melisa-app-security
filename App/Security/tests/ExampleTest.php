@@ -8,6 +8,9 @@ use App\Security\tests\TestCase;
 class ExampleTest extends TestCase
 {
     
+    /**
+     * @group completed
+     */
     public function testBasicExample()
     {
         

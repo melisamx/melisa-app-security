@@ -7,6 +7,9 @@ class SelectTest extends TestCase
 {
     use InstallUser;
     
+    /**
+     * @group completed
+     */
     public function testSelectPhone()
     {
         

@@ -7,15 +7,15 @@ use Melisa\Laravel\Models\Base;
  *
  * @author Luis Josafat Heredia Contreras
  */
-class SystemsSecurity extends Base
+class SecurityGroupsGates extends Base
 {
     
     protected $connection = 'mysql';
     
-    protected $table = 'systemsSecurity';
+    protected $table = 'securityGroupsGates';
     
     protected $fillable = [
-        'id', 'key', 'description', 'active', 'createdAt', 'idIdentityUpdated', 'updatedAt'
+        'id', 'idSecurityGroup', 'idGate', 'idIdentityCreated', 'active', 'createdAt', 'idIdentityUpdated', 'updatedAt'
     ];
     
     public $timestamps = true;

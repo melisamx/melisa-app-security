@@ -14,5 +14,5 @@ class PasswordlessRepository extends Repository
         return 'App\Security\Models\Passwordless';
         
     }
-        
+    
 }

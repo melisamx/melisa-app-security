@@ -7,6 +7,9 @@ class CreateTest extends TestCase
 {
     use InstallUser;
     
+    /**
+     * @group completed
+     */
     public function testAuthentication()
     {
         
@@ -23,6 +26,9 @@ class CreateTest extends TestCase
         
     }
     
+    /**
+     * @group completed
+     */
     public function testCreate()
     {
         

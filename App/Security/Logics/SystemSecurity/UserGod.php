@@ -28,13 +28,15 @@ class UserGod
     {
         
         if( !$user->isGod) {
-            return $this->error('user is not God deny action');
+            $this->info('user is not God, deny action');
+            return false;
         }
         
         if( !$user->active) {
-            return $this->error('user is God but is disabled, the action {g} is denied', [
+            $this->info('user is God but is disabled, the action {g} is denied', [
                 'g'=>$gate->key
             ]);
+            return false;
         }
         
         return true;
@@ -43,11 +45,6 @@ class UserGod
     
     public function getUser()
     {
-        static $user = null;
-        
-        if( $user) {
-            return $user;
-        }
         
         $user = request()->user();
         

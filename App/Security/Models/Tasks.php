@@ -7,18 +7,18 @@ use Melisa\Laravel\Models\Base;
  *
  * @author Luis Josafat Heredia Contreras
  */
-class SystemsSecurity extends Base
+class Tasks extends Base
 {
     
     protected $connection = 'mysql';
     
-    protected $table = 'systemsSecurity';
+    protected $table = 'tasks';
     
     protected $fillable = [
-        'id', 'key', 'description', 'active', 'createdAt', 'idIdentityUpdated', 'updatedAt'
+        'id', 'key', 'name', 'active', 'isSystem', 'description', 'pattern'
     ];
     
-    public $timestamps = true;
+    public $timestamps = false;
     
     public $incrementing = true;
     

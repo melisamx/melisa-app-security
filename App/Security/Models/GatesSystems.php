@@ -7,7 +7,7 @@ use Melisa\Laravel\Models\Base;
  *
  * @author Luis Josafat Heredia Contreras
  */
-abstract class GatesSystemsAbstract extends Base
+class GatesSystems extends Base
 {
     
     protected $connection = 'mysql';
@@ -20,16 +20,6 @@ abstract class GatesSystemsAbstract extends Base
     
     public $timestamps = true;
     
-    /* incrementing */
-    
-}
-
-class GatesSystems extends GatesSystemsAbstract
-{
-    
-    public function system()
-    {
-        return $this->hasOne('App\Security\Models\SystemsSecurity', 'id', 'idSystemSecurity');
-    }
+    public $incrementing = true;
     
 }

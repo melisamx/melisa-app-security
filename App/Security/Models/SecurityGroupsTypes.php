@@ -7,18 +7,18 @@ use Melisa\Laravel\Models\Base;
  *
  * @author Luis Josafat Heredia Contreras
  */
-class SystemsSecurity extends Base
+class SecurityGroupsTypes extends Base
 {
     
     protected $connection = 'mysql';
     
-    protected $table = 'systemsSecurity';
+    protected $table = 'securityGroupsTypes';
     
     protected $fillable = [
-        'id', 'key', 'description', 'active', 'createdAt', 'idIdentityUpdated', 'updatedAt'
+        'id', 'name'
     ];
     
-    public $timestamps = true;
+    public $timestamps = false;
     
     public $incrementing = true;
     

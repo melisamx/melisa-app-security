@@ -13,10 +13,13 @@ class GatesSecurity
     public function handle($request, Closure $next, $gate = '*')
     {
         
+        // Check if a user is logged in.
+        if (!$user = $request->user()) {
+            return response()->data(false);
+        }
+        
         if( !app('security')->isAllowed($gate)) {
-            
-            return false;
-            
+            return response()->data(false);
         }
         
         return $next($request);

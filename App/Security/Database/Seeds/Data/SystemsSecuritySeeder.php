@@ -20,6 +20,18 @@ class SystemsSecuritySeeder extends InstallSeeder
             'description'=>'Simple security system based on the users god property'
         ]);
         
+        SystemsSecurity::updateOrCreate([
+            'key'=>'art',
+        ], [
+            'description'=>'Security Application Roles Taask'
+        ]);
+        
+        SystemsSecurity::updateOrCreate([
+            'key'=>'arst',
+        ], [
+            'description'=>'Security Application Roles Scope Taask'
+        ]);
+        
     }
     
 }

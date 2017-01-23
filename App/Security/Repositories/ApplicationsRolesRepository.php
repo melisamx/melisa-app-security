@@ -6,12 +6,12 @@ use Melisa\Repositories\Eloquent\Repository;
  * 
  * @author Luis Josafat Heredia Contreras
  */
-class PasswordlessEmailsRepository extends Repository
+class ApplicationsRolesRepository extends Repository
 {
     
     public function model() {
         
-        return 'App\Security\Models\PasswordlessEmails';
+        return 'App\Security\Models\ApplicationsRoles';
         
     }
     

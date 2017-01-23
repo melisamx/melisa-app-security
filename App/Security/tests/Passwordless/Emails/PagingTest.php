@@ -17,8 +17,7 @@ class PagingTest extends TestCase
     
     /**
      * Simple paging
-     *
-     * @return void
+     * @group completed
      */
     public function testSimple()
     {
@@ -60,6 +59,9 @@ class PagingTest extends TestCase
         
     }
     
+    /**
+     * @group completed
+     */
     public function testNoExistPasswordless()
     {
         
@@ -93,6 +95,9 @@ class PagingTest extends TestCase
         
     }
     
+    /**
+     * @group completed
+     */
     public function testNoFilter()
     {
         
@@ -117,6 +122,9 @@ class PagingTest extends TestCase
         
     }
     
+    /**
+     * @group completed
+     */
     public function testNoPaging()
     {
         

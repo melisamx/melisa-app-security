@@ -7,6 +7,9 @@ class PagingTest extends TestCase
 {
     use InstallUser;
     
+    /**
+     * @group completed
+     */
     public function testSimple()
     {
         
