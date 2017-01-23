@@ -1,7 +1,4 @@
 <?php 
 
-/* ui */
-Route::get('selectPhone', 'UsersController@selectPhone');
-
-/* universal */
-Route::get('/', 'UsersController@paging')->middleware('gate:task.lamina.programaciones.view.access');
+Route::get('selectPhone', 'UsersController@selectPhone')->middleware('gate:task.security.phone.users.select.access');
+Route::get('/', 'UsersController@paging')->middleware('gate:task.security.users.paging');

@@ -23,13 +23,13 @@ class SystemsSecuritySeeder extends InstallSeeder
         SystemsSecurity::updateOrCreate([
             'key'=>'art',
         ], [
-            'description'=>'Security Application Roles Taask'
+            'description'=>'Security Application Roles Task'
         ]);
         
         SystemsSecurity::updateOrCreate([
             'key'=>'arst',
         ], [
-            'description'=>'Security Application Roles Scope Taask'
+            'description'=>'Security Application Roles Scope Task'
         ]);
         
     }

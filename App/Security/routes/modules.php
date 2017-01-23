@@ -1,8 +1,7 @@
 <?php 
 
 Route::group([
-    'prefix'=>'passwordless',
-    'middleware'=>'gate'
+    'prefix'=>'passwordless'
 ], function() {
     
     require realpath(base_path() . '/routes/modules/passwordless.php');
@@ -10,8 +9,7 @@ Route::group([
 });
 
 Route::group([
-    'prefix'=>'users',
-    'middleware'=>'gate'
+    'prefix'=>'users'
 ], function() {
     
     require realpath(base_path() . '/routes/modules/users.php');
