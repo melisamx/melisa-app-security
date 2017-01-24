@@ -10,10 +10,17 @@ use App\Security\Models\Gates;
  *
  * @author Luis Josafat Heredia Contreras
  */
-class GroupGods extends InstallSeeder
+class GroupsFill extends InstallSeeder
 {
     
     public function run()
+    {
+        
+        $this->groupDefault();
+        
+    }
+    
+    public function groupDefault()
     {
         
         $identity = $this->findIdentity();
@@ -22,6 +29,7 @@ class GroupGods extends InstallSeeder
         $gates = Gates::leftJoin('securityGroupsGates as sgg', 'sgg.idGate', '=', 'gates.id')
             ->leftJoin('securityGroups as sg', 'sg.id', '=', 'sgg.idSecurityGroup')
             ->where('sg.name', null)
+//            ->where('gates.key', 'like', '%lamina%')
             ->get([
                 'gates.id'
             ]);

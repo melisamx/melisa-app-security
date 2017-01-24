@@ -17,17 +17,17 @@ class SecurityGroupsSeeder extends InstallSeeder
         
         $identity = $this->findIdentity();
         
-        SecurityGroups::updateOrCreate([
-            'name'=>'gods',
-        ], [
-            'idIdentityCreated'=>$identity->id,
-        ]);
+//        SecurityGroups::updateOrCreate([
+//            'name'=>'gods',
+//        ], [
+//            'idIdentityCreated'=>$identity->id,
+//        ]);
         
         SecurityGroups::updateOrCreate([
             'name'=>'default',
         ], [
             'idIdentityCreated'=>$identity->id,
-            'order'=>1,
+            'order'=>0,
         ]);
         
     }

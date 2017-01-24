@@ -15,7 +15,7 @@ class FakerSeeder extends InstallSeeder
         
         $this->call(Faker\SecurityGroupsSeeder::class);
         $this->call(Faker\SecurityGroupsSystemsSeeder::class);
-        $this->call(Faker\SecurityGroupsGatesSeeder::class);
+//        $this->call(Faker\SecurityGroupsGatesSeeder::class);
         $this->call(Faker\ApplicationsRolesSeeder::class);
         
     }

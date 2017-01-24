@@ -17,6 +17,32 @@ class SecurityGroupsSystemsSeeder extends InstallSeeder
     {
         
         $identity = $this->findIdentity();
+        $securityGroup = SecurityGroups::where('name', 'default')->first();
+        $systemSecurity = SystemsSecurity::where('key', 'usergod')->first();
+        
+        SecurityGroupsSystems::updateOrCreate([
+            'idSecurityGroup'=>$securityGroup->id,
+            'idSystemSecurity'=>$systemSecurity->id,
+        ], [
+            'idIdentityCreated'=>$identity->id,
+        ]);        
+              
+        $systemSecurity = SystemsSecurity::where('key', 'art')->first();
+        
+        SecurityGroupsSystems::updateOrCreate([
+            'idSecurityGroup'=>$securityGroup->id,
+            'idSystemSecurity'=>$systemSecurity->id,
+        ], [
+            'idIdentityCreated'=>$identity->id,
+            'order'=>1
+        ]);
+                
+    }
+    
+    public function groupsGodsAndDefault()
+    {
+        
+        $identity = $this->findIdentity();
         $securityGroup = SecurityGroups::where('name', 'gods')->first();
         $systemSecurity = SystemsSecurity::where('key', 'usergod')->first();
         
@@ -37,7 +63,7 @@ class SecurityGroupsSystemsSeeder extends InstallSeeder
             'idIdentityCreated'=>$identity->id,
             'order'=>1
         ]);
-                
+        
     }
     
 }

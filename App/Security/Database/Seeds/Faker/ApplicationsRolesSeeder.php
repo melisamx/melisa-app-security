@@ -24,7 +24,7 @@ class ApplicationsRolesSeeder extends InstallSeeder
         
         $applicationRol = ApplicationsRoles::updateOrCreate([
             'idApplication'=>$application->id,
-            'rol'=>'Administrators',
+            'role'=>'Administrators',
         ], [
             'idIdentityCreated'=>$identity->id,
             'description'=>'Administrators application lamina'

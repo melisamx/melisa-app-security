@@ -90,13 +90,19 @@ class GatesSecurity
             $result = $this->evaluateGroup($name, $groupItems, $groups[$name]['oneAllowed']);
             
             if( $result) {
-                $this->debug('All success in group {g}', [
+                $this->debug('Success in group {g}', [
                     'g'=>$name
                 ]);
                 continue;
             }
             
             if( !$groups[$name]['required']) {
+                
+                if( count($groups) === 1) {
+                    $this->info('Only security group denied action');
+                    return false;
+                }
+                
                 $this->debug('Group {g} is no allowed gate {ga}, but the group is not required, continue evaluating groups', [
                     'g'=>$name,
                     'ga'=>$gate->key
