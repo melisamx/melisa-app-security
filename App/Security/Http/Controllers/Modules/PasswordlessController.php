@@ -1,6 +1,7 @@
 <?php namespace App\Security\Http\Controllers\Modules;
 
 use Melisa\Laravel\Http\Controllers\Controller;
+use App\Security\Modules\Passwordless\ViewPhoneModule;
 use App\Security\Modules\Passwordless\ViewModule;
 use App\Security\Modules\Passwordless\AddModule;
 
@@ -12,7 +13,14 @@ use App\Security\Modules\Passwordless\AddModule;
 class PasswordlessController extends Controller
 {
     
-    public function viewPhone(ViewModule $module)
+    public function viewPhone(ViewPhoneModule $module)
+    {
+        
+        return $module->render();
+        
+    }
+    
+    public function view(ViewModule $module)
     {
         
         return $module->render();
@@ -20,6 +28,13 @@ class PasswordlessController extends Controller
     }
     
     public function addPhone(AddModule $module)
+    {
+        
+        return $module->render();
+        
+    }
+    
+    public function add(AddModule $module)
     {
         
         return $module->render();

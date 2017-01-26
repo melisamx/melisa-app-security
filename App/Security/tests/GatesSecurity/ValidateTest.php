@@ -26,7 +26,7 @@ class ValidateTest extends TestCase
     
     /**
      * @test
-     * @group default
+     * @group completed
      */
     public function validGate()
     {

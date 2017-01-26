@@ -15,3 +15,11 @@ Route::group([
     require realpath(base_path() . '/routes/modules/users.php');
     
 });
+
+Route::group([
+    'prefix'=>'scopes'
+], function() {
+    
+    require realpath(base_path() . '/routes/modules/scopes.php');
+    
+});

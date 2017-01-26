@@ -42,3 +42,12 @@ Route::group([
     require realpath(base_path() . '/routes/modules/users.php');
     
 });
+
+Route::group([
+    'prefix'=>'scopes',
+    'middleware' => 'auth'
+], function() {
+    
+    require realpath(base_path() . '/routes/modules/scopes.php');
+    
+});

@@ -16,7 +16,8 @@ return [
             'applications',
             'gatesSystems',
             'passwordless',
-            'passwordlessEmails'
+            'passwordlessEmails',
+            'scopes'
         ],
     ]
 ];

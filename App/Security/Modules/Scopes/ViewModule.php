@@ -1,4 +1,4 @@
-<?php namespace App\Security\Modules\Passwordless;
+<?php namespace App\Security\Modules\Scopes;
 
 use App\Core\Logics\Modules\Outbuildings;
 
@@ -15,11 +15,14 @@ class ViewModule extends Outbuildings
         return [
             'success'=>true,
             'data'=>[
+                'token'=>csrf_token(),
                 'wrapper'=>[
-                    'title'=>'Passwordless',
+                    'title'=>'Ambitos',
                 ],
                 'modules'=>[
-                    'passwordless'=>$this->module('task.security.passwordless.paging')
+                    'scopes'=>$this->module('task.security.scopes.paging'),
+                    'delete'=>$this->module('task.security.scopes.delete', false),
+                    'add'=>$this->module('task.security.scopes.add.access', false),
                 ],
             ]
         ];

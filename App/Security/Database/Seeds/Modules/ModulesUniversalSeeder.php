@@ -10,6 +10,10 @@ class ModulesUniversalSeeder extends Seeder
         
         $this->call(Universal\PasswordlessCreateSeeder::class);
         $this->call(Universal\UsersPagingSeeder::class);
+        $this->call(Universal\ScopesPagingSeeder::class);
+        $this->call(Universal\PasswordlessPagingSeeder::class);
+        $this->call(Universal\ScopesCreateSeeder::class);
+        $this->call(Universal\ScopesDeleteSeeder::class);
         
     }
     

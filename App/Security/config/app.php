@@ -182,7 +182,6 @@ return [
         Melisa\Laravel\Providers\UuidProvider::class,
         Melisa\Laravel\Providers\HelpersProvider::class,
         Melisa\Laravel\Providers\ResponseMacroServiceProvider::class,
-        Melisa\Laravel\Providers\SanitizerServiceProvider::class,
 
     ],
 

@@ -1,4 +1,4 @@
-<?php namespace App\Security\Modules\Passwordless;
+<?php namespace App\Security\Modules\Users;
 
 use App\Core\Logics\Modules\Outbuildings;
 
@@ -16,10 +16,10 @@ class ViewModule extends Outbuildings
             'success'=>true,
             'data'=>[
                 'wrapper'=>[
-                    'title'=>'Passwordless',
+                    'title'=>'Usuarios',
                 ],
                 'modules'=>[
-                    'passwordless'=>$this->module('task.security.passwordless.paging')
+                    'users'=>$this->module('task.security.users.paging')
                 ],
             ]
         ];
