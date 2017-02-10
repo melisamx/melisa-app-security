@@ -39,7 +39,7 @@ class GetAvatar
         
         $avatarDefault = [];
         
-        foreach($user->avatar as $avatar) {
+        foreach($avatars as $avatar) {
             
             if( $avatar->isDefault && $avatar->active) {
                 $avatarDefault = $avatar;
