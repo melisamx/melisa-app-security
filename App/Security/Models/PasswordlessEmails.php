@@ -1,24 +1,12 @@
 <?php namespace App\Security\Models;
 
-use Melisa\Laravel\Models\BaseUuid;
-
 /**
  * 
  * @author Luis Josafat Heredia Contreras
  */
-class PasswordlessEmails extends BaseUuid
+class PasswordlessEmails extends PasswordlessEmailsAbstract
 {
     
-    protected $connection = 'mysql';
     
-    protected $table = 'passwordlessEmails';
-    
-    protected $fillable = [
-        'id', 'idPasswordless', 'email', 'idIdentityCreated', 'active', 'token', 'createdAt', 'dateExpiry', 'idIdentityUpdated', 'updatedAt'
-    ];
-    
-    public $timestamps = true;
-    
-    /* incrementing */
     
 }

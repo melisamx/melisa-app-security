@@ -1,25 +1,12 @@
 <?php namespace App\Security\Models;
 
-use Melisa\Laravel\Models\Base;
-
 /**
  * 
- *
  * @author Luis Josafat Heredia Contreras
  */
-class SecurityGroups extends Base
+class SecurityGroups extends SecurityGroupsAbstract
 {
     
-    protected $connection = 'mysql';
     
-    protected $table = 'securityGroups';
-    
-    protected $fillable = [
-        'id', 'idIdentityCreated', 'name', 'active', 'order', 'oneAllowed', 'required', 'createdAt', 'idIdentityUpdated', 'description', 'updatedAt'
-    ];
-    
-    public $timestamps = true;
-    
-    public $incrementing = true;
     
 }

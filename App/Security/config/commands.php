@@ -17,7 +17,8 @@ return [
             'gatesSystems',
             'passwordless',
             'passwordlessEmails',
-            'scopes'
+            'scopes',
+            'usersAvatars'
         ],
     ]
 ];

@@ -4,7 +4,7 @@
  * 
  * @author Luis Josafat Heredia Contreras
  */
-class RolesIdentities extends RolesIdentitiesAbstract
+class UsersAvatars extends UsersAvatarsAbstract
 {
     
     
