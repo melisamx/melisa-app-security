@@ -31,7 +31,7 @@ class GetAvatar
     public function getDefault(&$user)
     {
         
-        $avatars = $user->avatar;
+        $avatars = $user->avatars;
         
         if( !$avatars->count()) {
             return [];
