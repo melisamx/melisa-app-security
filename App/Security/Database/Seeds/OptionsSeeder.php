@@ -15,7 +15,7 @@ class OptionsSeeder extends InstallSeeder
         
         $this->installOption('option.security.access', [
             'name'=>'Option main de aplicación security',
-            'text'=>'Security',
+            'text'=>'Seguridad',
             'isSubMenu'=>true,
             'iconClassSmall'=>'x-fa fa fa-shield',
             'iconClassMedium'=>'x-fa fa fa-shield',
