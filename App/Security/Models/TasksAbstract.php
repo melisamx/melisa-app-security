@@ -10,7 +10,7 @@ use Melisa\Laravel\Models\Base;
 class TasksAbstract extends Base
 {
     
-    protected $connection = 'mysql';
+    protected $connection = 'core';
     
     protected $table = 'tasks';
     

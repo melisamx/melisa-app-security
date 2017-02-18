@@ -10,7 +10,7 @@ use Melisa\Laravel\Models\Base;
 class SystemsSecurityAbstract extends Base
 {
     
-    protected $connection = 'mysql';
+    protected $connection = 'core';
     
     protected $table = 'systemsSecurity';
     

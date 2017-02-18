@@ -9,7 +9,7 @@ use Melisa\Laravel\Models\BaseUuid;
 abstract class ApplicationsAbstract extends BaseUuid
 {
     
-    protected $connection = 'mysql';
+    protected $connection = 'core';
     
     protected $table = 'applications';
     
