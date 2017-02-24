@@ -20,7 +20,7 @@ class AddModule extends Outbuildings
                     'title'=>'Agregar ambitos',
                 ],
                 'modules'=>[
-                    'create'=>$this->module('task.security.scopes.create'),
+                    'submit'=>$this->module('task.security.scopes.create'),
                 ],
                 'i18n'=>[
                     'txtName'=>'Nombre',
