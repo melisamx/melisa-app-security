@@ -1,4 +1,4 @@
-<?php namespace App\Security\Database\Seeds\Modules\Universal;
+<?php namespace App\Security\Database\Seeds\Modules\Universal\Scopes;
 
 use Melisa\Laravel\Database\InstallSeeder;
 
@@ -7,7 +7,7 @@ use Melisa\Laravel\Database\InstallSeeder;
  *
  * @author Luis Josafat Heredia Contreras
  */
-class ScopesPagingSeeder extends InstallSeeder
+class PagingSeeder extends InstallSeeder
 {
     
     public function run()

@@ -1,4 +1,4 @@
-<?php namespace App\Security\Database\Seeds\Modules\Desktop;
+<?php namespace App\Security\Database\Seeds\Modules\Desktop\Users;
 
 use Melisa\Laravel\Database\InstallSeeder;
 
@@ -7,7 +7,7 @@ use Melisa\Laravel\Database\InstallSeeder;
  *
  * @author Luis Josafat Heredia Contreras
  */
-class UsersViewSeeder extends InstallSeeder
+class ViewSeeder extends InstallSeeder
 {
     
     public function run()
@@ -29,9 +29,9 @@ class UsersViewSeeder extends InstallSeeder
                     'key'=>'option.security.users.view.access',
                     'name'=>'Opción para ver usuarios',
                     'text'=>'Usuarios',
-                    'iconClassSmall'=>'x-fa fa fa-user',
-                    'iconClassMedium'=>'x-fa fa fa-user',
-                    'iconClassLarge'=>'x-fa fa fa-user',
+                    'iconClassSmall'=>'x-fa fa fa-users',
+                    'iconClassMedium'=>'x-fa fa fa-users',
+                    'iconClassLarge'=>'x-fa fa fa-users',
                 ],
                 'menu'=>[
                     [
@@ -43,6 +43,10 @@ class UsersViewSeeder extends InstallSeeder
                             'option.security.users.remove.access',
                         ]
                     ]
+                ],
+                'event'=>[
+                    'key'=>'event.security.users.view.access',
+                    'description'=>'Acceso al módulo ver usuarios'
                 ]
             ],
         ]);

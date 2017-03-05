@@ -12,6 +12,7 @@ Ext.define('Melisa.security.view.desktop.users.view.Wrapper', {
     
     cls: 'app-security-users-view',
     emptyText: 'No hay usuarios registrados',
+    iconCls: 'x-fa fa-users',
     deferEmptyText: true,
     bind: {
         store: '{users}'

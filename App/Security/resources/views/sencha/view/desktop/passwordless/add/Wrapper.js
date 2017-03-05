@@ -9,6 +9,7 @@ Ext.define('Melisa.security.view.desktop.users.add.Wrapper', {
         'Melisa.core.Module'
     ],
     
+    iconCls: 'x-fa fa-plus',
     layout: {
         type: 'vbox',
         align: 'stretch'

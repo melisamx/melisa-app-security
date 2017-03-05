@@ -5,25 +5,6 @@ Ext.define('Melisa.security.view.desktop.users.delete.Wrapper', {
         'Melisa.view.desktop.window.delete.WithIframe'
     ],
     
-    bind: {
-        title: '{wrapper.title} de la patente {patente}'
-    },
-    
-    listeners: {
-        
-        errorsubmit: function() {
-            
-            Ext.Msg.alert('Atención', 'Imposible eliminar firma, intentelo nuevamente');
-            
-        },
-        successloadremotedata: function(data) {
-            
-            this.getViewModel().set({
-                patente: data.patente
-            });
-            
-        }
-        
-    }
+    iconCls: 'x-fa fa-trash'
     
 });

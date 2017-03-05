@@ -12,9 +12,10 @@ Ext.define('Melisa.security.view.desktop.scopes.view.Wrapper', {
     ],
     
     cls: 'app-security-scopes-view',
-    emptyText: 'No hay ambitos registrados',
-    deferEmptyText: true,
+    emptyText: 'No hay ámbitos registrados',
     reference: 'grid',
+    iconCls: 'x-fa fa-sitemap',
+    deferEmptyText: true,
     bind: {
         store: '{scopes}'
     },

@@ -10,6 +10,8 @@ use App\Core\Logics\Modules\Outbuildings;
 class ViewPhoneModule extends Outbuildings
 {
     
+    public $event = 'event.security.phone.passwordless.view.access';
+    
     public function dataDictionary() {
         
         return [

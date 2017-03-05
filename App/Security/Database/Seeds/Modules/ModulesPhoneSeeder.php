@@ -7,11 +7,19 @@ class ModulesPhoneSeeder extends Seeder
     
     public function run()
     {
-        
-        $this->call(Phone\PasswordlessViewSeeder::class);
-        $this->call(Phone\PasswordlessAddSeeder::class);
-        $this->call(Phone\UsersSelectSeeder::class);
-        
+        $this->users();
+        $this->passwordless();
+    }
+    
+    public function passwordless()
+    {
+        $this->call(Phone\Passwordless\ViewSeeder::class);
+        $this->call(Phone\Passwordless\AddSeeder::class);
+    }
+    
+    public function users()
+    {
+        $this->call(Phone\Users\SelectSeeder::class);
     }
     
 }

@@ -10,6 +10,7 @@ Ext.define('Melisa.security.view.desktop.scopes.add.Wrapper', {
         'Melisa.core.Module'
     ],
     
+    iconCls: 'x-fa fa-plus',
     controller: {
         type: 'create'
     },

@@ -1,4 +1,4 @@
-<?php namespace App\Security\Database\Seeds\Modules\Universal;
+<?php namespace App\Security\Database\Seeds\Modules\Universal\Scopes;
 
 use Melisa\Laravel\Database\InstallSeeder;
 
@@ -7,7 +7,7 @@ use Melisa\Laravel\Database\InstallSeeder;
  *
  * @author Luis Josafat Heredia Contreras
  */
-class ScopesCreateSeeder extends InstallSeeder
+class CreateSeeder extends InstallSeeder
 {
     
     public function run()
@@ -26,7 +26,7 @@ class ScopesCreateSeeder extends InstallSeeder
                 ],
                 'event'=>[
                     'key'=>'event.security.scopes.create.success',
-                    'description'=>'Crear ámbito'
+                    'description'=>'Ámbito creado'
                 ]
             ],
         ]);

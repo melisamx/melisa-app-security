@@ -10,6 +10,8 @@ use App\Core\Logics\Modules\Outbuildings;
 class AddModule extends Outbuildings
 {
     
+    public $event = 'event.security.scopes.add.access';
+    
     public function dataDictionary() {
         
         return [
@@ -17,7 +19,7 @@ class AddModule extends Outbuildings
             'data'=>[
                 'token'=>csrf_token(),
                 'wrapper'=>[
-                    'title'=>'Agregar ambitos',
+                    'title'=>'Agregar ámbito',
                 ],
                 'modules'=>[
                     'submit'=>$this->module('task.security.scopes.create'),

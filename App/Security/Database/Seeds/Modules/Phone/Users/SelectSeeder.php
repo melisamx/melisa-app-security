@@ -1,4 +1,4 @@
-<?php namespace App\Security\Database\Seeds\Modules\Phone;
+<?php namespace App\Security\Database\Seeds\Modules\Phone\Users;
 
 use Melisa\Laravel\Database\InstallSeeder;
 
@@ -7,7 +7,7 @@ use Melisa\Laravel\Database\InstallSeeder;
  *
  * @author Luis Josafat Heredia Contreras
  */
-class UsersSelectSeeder extends InstallSeeder
+class SelectSeeder extends InstallSeeder
 {
     
     public function run()

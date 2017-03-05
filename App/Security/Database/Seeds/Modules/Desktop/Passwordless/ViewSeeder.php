@@ -1,4 +1,4 @@
-<?php namespace App\Security\Database\Seeds\Modules\Desktop;
+<?php namespace App\Security\Database\Seeds\Modules\Desktop\Passwordless;
 
 use Melisa\Laravel\Database\InstallSeeder;
 
@@ -7,7 +7,7 @@ use Melisa\Laravel\Database\InstallSeeder;
  *
  * @author Luis Josafat Heredia Contreras
  */
-class PasswordlessViewSeeder extends InstallSeeder
+class ViewSeeder extends InstallSeeder
 {
     
     public function run()
@@ -28,7 +28,10 @@ class PasswordlessViewSeeder extends InstallSeeder
                 'option'=>[
                     'key'=>'option.security.passwordless.view.access',
                     'name'=>'Opción para ver passwordless',
-                    'text'=>'Passwordless'
+                    'text'=>'Passwordless',
+                    'iconClassSmall'=>'x-fa fa fa-key',
+                    'iconClassMedium'=>'x-fa fa fa-key',
+                    'iconClassLarge'=>'x-fa fa fa-key',
                 ],
                 'menu'=>[
                     [
@@ -40,6 +43,10 @@ class PasswordlessViewSeeder extends InstallSeeder
                             'option.security.passwordless.remove.access',
                         ]
                     ]
+                ],
+                'event'=>[
+                    'key'=>'event.security.passwordless.view.access',
+                    'description'=>'Acceso al módulo ver passwordless'
                 ]
             ],
         ]);

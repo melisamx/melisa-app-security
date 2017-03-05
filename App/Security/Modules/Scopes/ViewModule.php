@@ -10,6 +10,8 @@ use App\Core\Logics\Modules\Outbuildings;
 class ViewModule extends Outbuildings
 {
     
+    public $event = 'event.security.scopes.view.access';
+    
     public function dataDictionary() {
         
         return [
@@ -17,7 +19,7 @@ class ViewModule extends Outbuildings
             'data'=>[
                 'token'=>csrf_token(),
                 'wrapper'=>[
-                    'title'=>'Ambitos',
+                    'title'=>'Ámbitos',
                 ],
                 'modules'=>[
                     'scopes'=>$this->module('task.security.scopes.paging'),

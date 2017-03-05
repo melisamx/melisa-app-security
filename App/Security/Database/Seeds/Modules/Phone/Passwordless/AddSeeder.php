@@ -1,4 +1,4 @@
-<?php namespace App\Security\Database\Seeds\Modules\Phone;
+<?php namespace App\Security\Database\Seeds\Modules\Phone\Passwordless;
 
 use Melisa\Laravel\Database\InstallSeeder;
 
@@ -7,7 +7,7 @@ use Melisa\Laravel\Database\InstallSeeder;
  *
  * @author Luis Josafat Heredia Contreras
  */
-class PasswordlessAddSeeder extends InstallSeeder
+class AddSeeder extends InstallSeeder
 {
     
     public function run()
@@ -34,7 +34,7 @@ class PasswordlessAddSeeder extends InstallSeeder
                     'iconClassLarge'=>'x-fa fa fa-key',
                 ],
                 'event'=>[
-                    'key'=>'event.security.passwordless.add.access',
+                    'key'=>'event.security.phone.passwordless.add.access',
                     'description'=>'Acceso al módulo para agregar autentificaciones de usuarios con enlace magico versión phone'
                 ],
             ],

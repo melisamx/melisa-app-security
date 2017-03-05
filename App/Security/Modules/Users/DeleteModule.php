@@ -10,6 +10,8 @@ use App\Core\Logics\Modules\Outbuildings;
 class DeleteModule extends Outbuildings
 {
     
+    public $event = 'event.security.users.delete.access';
+    
     public function dataDictionary() {
         
         return [

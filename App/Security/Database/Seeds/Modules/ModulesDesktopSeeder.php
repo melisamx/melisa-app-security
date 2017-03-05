@@ -11,15 +11,27 @@ class ModulesDesktopSeeder extends Seeder
 {
     
     public function run()
+    {        
+        $this->users();
+        $this->scopes();
+        $this->passwordless();
+    }
+    
+    public function passwordless()
     {
-        
-        $this->call(Desktop\ScopesAddSeeder::class);
-        $this->call(Desktop\ScopesViewSeeder::class);
-        $this->call(Desktop\UsersViewSeeder::class);
-        $this->call(Desktop\PasswordlessViewSeeder::class);
-        $this->call(Desktop\UsersAddSeeder::class);
-        
-        
+        $this->call(Desktop\Passwordless\ViewSeeder::class);
+    }
+    
+    public function users()
+    {
+        $this->call(Desktop\Users\ViewSeeder::class);
+        $this->call(Desktop\Users\AddSeeder::class);
+    }
+    
+    public function scopes()
+    {
+        $this->call(Desktop\Scopes\AddSeeder::class);
+        $this->call(Desktop\Scopes\ViewSeeder::class);
     }
     
 }

@@ -1,8 +1,8 @@
 <?php namespace App\Security\Database\Seeds;
 
-use Illuminate\Database\Seeder;
+use Melisa\Laravel\Database\InstallSeeder;
 
-class DatabaseSeeder extends Seeder
+class DatabaseSeeder extends InstallSeeder
 {
     
     public function run()
@@ -12,6 +12,8 @@ class DatabaseSeeder extends Seeder
         $this->call(OptionsSeeder::class);
         $this->call(ModulesSeeder::class);
         $this->call(DataSeeder::class);
+        
+        $this->cleanLogs();
         
     }
     

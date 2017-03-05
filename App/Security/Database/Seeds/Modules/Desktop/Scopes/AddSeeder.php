@@ -1,4 +1,4 @@
-<?php namespace App\Security\Database\Seeds\Modules\Desktop;
+<?php namespace App\Security\Database\Seeds\Modules\Desktop\Scopes;
 
 use Melisa\Laravel\Database\InstallSeeder;
 
@@ -7,7 +7,7 @@ use Melisa\Laravel\Database\InstallSeeder;
  *
  * @author Luis Josafat Heredia Contreras
  */
-class ScopesAddSeeder extends InstallSeeder
+class AddSeeder extends InstallSeeder
 {
     
     public function run()
@@ -29,6 +29,10 @@ class ScopesAddSeeder extends InstallSeeder
                     'key'=>'option.security.scopes.add.access',
                     'name'=>'Opción para agregar ámbito',
                     'text'=>'Agregar ámbito'
+                ],
+                'event'=>[
+                    'key'=>'event.security.scopes.add.access',
+                    'description'=>'Acceso al módulo agregar ámbitos'
                 ]
             ],
         ]);

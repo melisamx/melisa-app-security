@@ -1,4 +1,4 @@
-<?php namespace App\Security\Database\Seeds\Modules\Universal;
+<?php namespace App\Security\Database\Seeds\Modules\Universal\Passwordless;
 
 use Melisa\Laravel\Database\InstallSeeder;
 
@@ -7,7 +7,7 @@ use Melisa\Laravel\Database\InstallSeeder;
  *
  * @author Luis Josafat Heredia Contreras
  */
-class PasswordlessCreateSeeder extends InstallSeeder
+class CreateSeeder extends InstallSeeder
 {
     
     public function run()
@@ -26,7 +26,7 @@ class PasswordlessCreateSeeder extends InstallSeeder
                 ],
                 'event'=>[
                     'key'=>'event.security.passwordless.create.success',
-                    'description'=>'Autentificacion de usuario creada con enlace magico creada sastisfactoriamente'
+                    'description'=>'Autentificacion de usuario creada con enlace magico creado'
                 ]
             ],
         ]);
