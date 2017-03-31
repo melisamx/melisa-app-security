@@ -10,7 +10,7 @@ use App\Core\Logics\Modules\Outbuildings;
 class SelectModule extends Outbuildings
 {
     
-    public $event = 'event.security.users.select.access';
+    public $event = 'security.users.select.access';
     
     public function dataDictionary() {
         

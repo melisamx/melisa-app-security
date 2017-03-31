@@ -10,7 +10,7 @@ use App\Core\Logics\Modules\Outbuildings;
 class AddModule extends Outbuildings
 {
     
-    public $event = 'event.security.passwordless.add.access';
+    public $event = 'security.passwordless.add.access';
     
     public function dataDictionary() {
         

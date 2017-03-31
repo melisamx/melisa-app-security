@@ -10,7 +10,7 @@ use App\Core\Logics\Modules\Outbuildings;
 class ViewModule extends Outbuildings
 {
     
-    public $event = 'event.security.scopes.view.access';
+    public $event = 'security.scopes.view.access';
     
     public function dataDictionary() {
         
