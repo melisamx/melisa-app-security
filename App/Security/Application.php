@@ -1,4 +1,6 @@
-<?php namespace App\Security;
+<?php
+
+namespace App\Security;
 
 use Melisa\Laravel\ApplicationBase;
 
