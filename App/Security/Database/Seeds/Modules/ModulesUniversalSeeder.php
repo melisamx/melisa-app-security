@@ -1,8 +1,10 @@
-<?php namespace App\Security\Database\Seeds\Modules;
+<?php
 
-use Illuminate\Database\Seeder;
+namespace App\Security\Database\Seeds\Modules;
 
-class ModulesUniversalSeeder extends Seeder
+use Melisa\Laravel\Database\InstallSeeder;
+
+class ModulesUniversalSeeder extends InstallSeeder
 {
     
     public function run()
@@ -15,6 +17,12 @@ class ModulesUniversalSeeder extends Seeder
     public function users()
     {
         $this->call(Universal\Users\PagingSeeder::class);
+        $this->installModuleJson('Universal/Users', [
+            'create',
+            'delete',
+            'deactivate',
+            'activate',
+        ]);
     }
     
     public function scopes()

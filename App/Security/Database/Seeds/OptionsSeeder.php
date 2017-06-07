@@ -1,4 +1,6 @@
-<?php namespace App\Security\Database\Seeds;
+<?php
+
+namespace App\Security\Database\Seeds;
 
 use Melisa\Laravel\Database\InstallSeeder;
 
@@ -11,8 +13,7 @@ class OptionsSeeder extends InstallSeeder
 {
     
     public function run()
-    {
-        
+    {        
         $this->installOption('option.security.access', [
             'name'=>'Option main de aplicación security',
             'text'=>'Seguridad',
@@ -20,8 +21,7 @@ class OptionsSeeder extends InstallSeeder
             'iconClassSmall'=>'x-fa fa fa-shield',
             'iconClassMedium'=>'x-fa fa fa-shield',
             'iconClassLarge'=>'x-fa fa fa-shield',
-        ]);
-        
+        ]);        
     }
     
 }

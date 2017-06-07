@@ -3,7 +3,9 @@ Ext.define('Melisa.security.view.desktop.users.view.Wrapper', {
     
     requires: [
         'Melisa.ux.grid.Filters',
-        'Melisa.core.Module'
+        'Melisa.core.Module',
+        'Melisa.ux.FloatingButton',
+        'Melisa.ux.confirmation.Button'
     ],
     
     mixins: [
@@ -62,8 +64,6 @@ Ext.define('Melisa.security.view.desktop.users.view.Wrapper', {
             xtype: 'booleancolumn',
             text: 'Primer inicio',
             dataIndex: 'firstLogin',
-            trueText: 'Si',
-            falseText: 'No',
             align: 'center',
             width: 140
         },
@@ -71,40 +71,80 @@ Ext.define('Melisa.security.view.desktop.users.view.Wrapper', {
             xtype: 'booleancolumn',
             text: 'De sistema?',
             dataIndex: 'isSystem',
-            trueText: 'Si',
-            falseText: 'No',
             align: 'center',
             width: 125
+        },
+        {
+            xtype: 'datecolumn',
+            dataIndex: 'createdAt',
+            text: 'Fecha creación',
+            format:'d/m/Y h:i:s a',
+            width: 180
+        },
+        {
+            xtype: 'datecolumn',
+            dataIndex: 'updatedAt',
+            text: 'Fecha modificación',
+            format:'d/m/Y h:i:s a',
+            width: 180,
+            hidden: true,
+            bind: {
+                hidden: '{hiddenColumns}'
+            }
+        },
+        {
+            xtype: 'widgetcolumn',
+            width: 30,
+            widget: {
+                xtype: 'button',
+                iconCls: 'x-fa fa-pencil',
+                tooltip: 'Modificar usuario',
+                bind: {
+                    melisa: '{modules.update}',
+                    hidden: '{!modules.update.allowed}'
+                },
+                listeners: {
+                    click: 'moduleRun',
+                    loaded: 'onLoadedModuleUpdate'
+                }
+            }
+        },
+        {
+            xtype: 'widgetcolumn',
+            width: 30,
+            widget: {
+                xtype: 'button',
+                iconCls: 'x-fa fa-trash',
+                tooltip: 'Eliminar usuario',
+                bind: {
+                    melisa: '{modules.delete}',
+                    hidden: '{!modules.delete.allowed}'
+                },
+                plugins: {
+                    ptype: 'buttonconfirmation'
+                }
+            }
+        },
+        {
+            xtype: 'widgetcolumn',
+            width: 30,
+            widget: {
+                xtype: 'button',
+                bind: {
+                    melisa: '{record.active ? modules.deactivate : modules.activate}',
+                    hidden: '{record.active ? !modules.deactivate.allowed : !modules.activate.allowed}',
+                    iconCls: '{record.active ? "x-fa fa-thumbs-down" : "x-fa fa-thumbs-up" }',
+                    tooltip: '{record.active ? "Desactivar" : "Activar"}'
+                },
+                plugins: {
+                    ptype: 'buttonconfirmation'
+                }
+            }
         }
     ],
     selModel: {
         selType: 'checkboxmodel'
     },
-    tbar: [
-        {
-            text: 'Agregar usuario',
-            iconCls: 'x-fa fa-plus',
-            bind: {
-                melisa: '{modules.add}',
-                hidden: '{!modules.add.allowed}',
-            },
-            listeners: {
-                click: 'moduleRun'
-            }
-        },
-        {
-            text: 'Eliminar usuario',
-            iconCls: 'x-fa fa-trash',
-            bind: {
-                melisa: '{modules.delete}',
-                hidden: '{!modules.delete.allowed}',
-            },
-            listeners: {
-                click: 'moduleRun',
-                loaded: 'onUsuarioDeleteLoaded'
-            }
-        }
-    ],
     bbar: {
         xtype: 'pagingtoolbar',
         displayInfo: true
@@ -113,23 +153,29 @@ Ext.define('Melisa.security.view.desktop.users.view.Wrapper', {
         {
             ptype: 'autofilters',
             filters: {
-                scope: {
+                name: {
                     operator: 'like'
                 },
-                nombre: {
-                    operator: 'like'
-                },
-                patente: {
-                    operator: 'like'
-                },
-                referencia: {
+                email: {
                     operator: 'like'
                 }
             },
             filtersIgnore: [
-                'fechaCreacion',
-                'fechaModificacion'
+                'createdAt',
+                'updatedAt'
             ]
+        },
+        {
+            ptype: 'floatingbutton',
+            configButton: {
+                handler: 'moduleRun',
+                iconCls: 'x-fa fa-plus',
+                scale: 'large',
+                bind: {
+                    melisa: '{modules.add}',
+                    hidden: '{!modules.add.allowed}'
+                }
+            }
         }
     ]
     

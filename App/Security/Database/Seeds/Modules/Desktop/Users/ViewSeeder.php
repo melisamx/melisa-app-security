@@ -1,4 +1,6 @@
-<?php namespace App\Security\Database\Seeds\Modules\Desktop\Users;
+<?php
+
+namespace App\Security\Database\Seeds\Modules\Desktop\Users;
 
 use Melisa\Laravel\Database\InstallSeeder;
 
@@ -11,8 +13,7 @@ class ViewSeeder extends InstallSeeder
 {
     
     public function run()
-    {
-        
+    {        
         $this->installModule([
             [
                 'name'=>'Ver usuarios',
@@ -49,8 +50,7 @@ class ViewSeeder extends InstallSeeder
                     'description'=>'Acceso al módulo ver usuarios'
                 ]
             ],
-        ]);
-        
+        ]);        
     }
     
 }

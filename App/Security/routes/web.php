@@ -10,44 +10,34 @@ Route::group([
     'prefix'=>'modules',
     'namespace'=>'Modules',
     'middleware' => 'auth'
-], function() {
-    
-    require realpath(base_path() . '/routes/modules.php');
-    
+], function() {    
+    require realpath(base_path() . '/routes/modules.php');    
 });
 
 Route::group([
     'prefix'=>'passwordless',
     'middleware' => 'auth'
-], function() {
-    
-    require realpath(base_path() . '/routes/modules/passwordless.php');
-    
+], function() {    
+    require realpath(base_path() . '/routes/modules/passwordless.php');    
 });
 
 Route::group([
     'prefix'=>'passwordlessEmails',
     'middleware' => 'auth'
-], function() {
-    
-    Route::get('paging', 'PasswordlessEmailsController@paging');
-    
+], function() {    
+    Route::get('paging', 'PasswordlessEmailsController@paging');    
 });
 
 Route::group([
     'prefix'=>'users',
     'middleware' => 'auth'
-], function() {
-    
-    require realpath(base_path() . '/routes/modules/users.php');
-    
+], function() {    
+    require realpath(base_path() . '/routes/modules/users.php');    
 });
 
 Route::group([
     'prefix'=>'scopes',
     'middleware' => 'auth'
-], function() {
-    
-    require realpath(base_path() . '/routes/modules/scopes.php');
-    
+], function() {    
+    require realpath(base_path() . '/routes/modules/scopes.php');    
 });

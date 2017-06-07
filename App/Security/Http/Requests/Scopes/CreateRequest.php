@@ -1,4 +1,6 @@
-<?php namespace App\Security\Http\Requests\Scopes;
+<?php
+
+namespace App\Security\Http\Requests\Scopes;
 
 use Melisa\Laravel\Http\Requests\Generic;
 use Melisa\Sanitizes\BeforeSanitize;

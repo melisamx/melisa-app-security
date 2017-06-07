@@ -2,24 +2,18 @@
 
 Route::group([
     'prefix'=>'passwordless'
-], function() {
-    
-    require realpath(base_path() . '/routes/modules/passwordless.php');
-    
+], function() {    
+    require realpath(base_path() . '/routes/modules/passwordless.php');    
 });
 
 Route::group([
     'prefix'=>'users'
-], function() {
-    
-    require realpath(base_path() . '/routes/modules/users.php');
-    
+], function() {    
+    require realpath(base_path() . '/routes/modules/users.php');    
 });
 
 Route::group([
     'prefix'=>'scopes'
-], function() {
-    
-    require realpath(base_path() . '/routes/modules/scopes.php');
-    
+], function() {    
+    require realpath(base_path() . '/routes/modules/scopes.php');    
 });

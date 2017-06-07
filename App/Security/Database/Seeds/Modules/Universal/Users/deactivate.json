@@ -1,0 +1,15 @@
+{
+    "name": "Desactivar usuario",
+    "url": "/security.php/users/deactivate/",
+    "description": "Módulo para desactivar usuario",
+    "task": {
+        "key": "task.security.users.deactivate",
+        "name": "Acceso a desactivar usuario",
+        "description": "Permitir desactivar usuario",
+        "pattern": "update"
+    },
+    "event": {
+        "key": "event.security.users.deactivate.success",
+        "description": "Usuario desactivado"
+    }
+}

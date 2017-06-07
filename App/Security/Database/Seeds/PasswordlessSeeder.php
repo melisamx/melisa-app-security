@@ -1,4 +1,6 @@
-<?php namespace App\Security\Database\Seeds;
+<?php
+
+namespace App\Security\Database\Seeds;
 
 use Melisa\Laravel\Database\InstallSeeder;
 use App\Security\Models\Passwordless;
@@ -14,47 +16,39 @@ class PasswordlessSeeder extends InstallSeeder
 {
     
     public function run()
+    {        
+        $user = $this->findUser('demo');        
+        $this->createPasswordless('demo', $user->id, 'luisyosafat@gmail.com');        
+    }
+    
+    public function createPasswordless($name, $idUser, $email, $dateExpiry = null)
     {
+        static $tokenClass = null;
+        static $idIdentityCreated = null;
         
-        $user = $this->findUser('demo');
-        $identity = $this->findIdentity();
-        $token = app(Uuid::class)->v5(config('app.name'));
+        if( is_null($tokenClass)) {
+            $tokenClass = app(Uuid::class);
+            $idIdentityCreated = $this->findIdentity();
+        }
+        
+        $token = $tokenClass->v5(config('app.name'));
         
         $passwordless = Passwordless::updateOrCreate([
-            'name'=>'demo',
+            'name'=>$name,
         ], [
-            'idUser'=>$user->id,
-            'idIdentityCreated'=>$identity->id,
+            'idUser'=>$idUser,
+            'idIdentityCreated'=>$idIdentityCreated,
         ]);
         
         PasswordlessEmails::updateOrCreate([
             'idPasswordless'=>$passwordless->id,
-            'email'=>'carlaedith@gmail.com'
+            'email'=>$email
         ], [
             'idIdentityCreated'=>$identity->id,
             'token'=>$token,
-            'dateExpiry'=>'2017-01-01 12:00:00',
+            'dateExpiry'=>is_null($dateExpiry) ? 
+                '2017-01-01 12:00:00' : $dateExpiry,
         ]);
-        
-        $token = app(Uuid::class)->v5(config('app.name'));
-        $user = $this->findUser('developer');
-        
-        $passwordless = Passwordless::updateOrCreate([
-            'name'=>'Gods',
-        ], [
-            'idUser'=>$user->id,
-            'idIdentityCreated'=>$identity->id,
-        ]);
-        
-        PasswordlessEmails::updateOrCreate([
-            'idPasswordless'=>$passwordless->id,
-            'email'=>'luisyosafat@gmail.com'
-        ], [
-            'idIdentityCreated'=>$identity->id,
-            'token'=>$token,
-            'dateExpiry'=>'2017-01-01 12:00:00',
-        ]);
-        
     }
     
 }

@@ -1,4 +1,6 @@
-<?php namespace App\Security\Database\Seeds\Data;
+<?php
+
+namespace App\Security\Database\Seeds\Data;
 
 use Melisa\Laravel\Database\InstallSeeder;
 use App\Security\Models\SystemsSecurity;
@@ -12,8 +14,7 @@ class SystemsSecuritySeeder extends InstallSeeder
 {
     
     public function run()
-    {
-        
+    {        
         SystemsSecurity::updateOrCreate([
             'key'=>'usergod',
         ], [
@@ -30,8 +31,7 @@ class SystemsSecuritySeeder extends InstallSeeder
             'key'=>'arst',
         ], [
             'description'=>'Security Application Roles Scope Task'
-        ]);
-        
+        ]);        
     }
     
 }

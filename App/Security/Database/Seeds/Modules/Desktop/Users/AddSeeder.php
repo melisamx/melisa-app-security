@@ -1,4 +1,6 @@
-<?php namespace App\Security\Database\Seeds\Modules\Desktop\Users;
+<?php
+
+namespace App\Security\Database\Seeds\Modules\Desktop\Users;
 
 use Melisa\Laravel\Database\InstallSeeder;
 
@@ -11,8 +13,7 @@ class AddSeeder extends InstallSeeder
 {
     
     public function run()
-    {
-        
+    {        
         $this->installModule([
             [
                 'name'=>'Agregar usuarios',
@@ -35,8 +36,7 @@ class AddSeeder extends InstallSeeder
                     'description'=>'Acceso al módulo agregar usuarios'
                 ]
             ],
-        ]);
-        
+        ]);        
     }
     
 }

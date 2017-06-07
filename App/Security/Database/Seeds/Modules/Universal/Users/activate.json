@@ -1,0 +1,15 @@
+{
+    "name": "Activar usuario",
+    "url": "/security.php/users/activate/",
+    "description": "Módulo para activar usuario",
+    "task": {
+        "key": "task.security.users.activate",
+        "name": "Acceso a activar usuario",
+        "description": "Permitir activar usuario",
+        "pattern": "update"
+    },
+    "event": {
+        "key": "event.security.users.activate.success",
+        "description": "Usuario activado"
+    }
+}

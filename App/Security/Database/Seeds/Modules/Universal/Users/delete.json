@@ -1,0 +1,15 @@
+{
+    "name": "Eliminar usuario",
+    "url": "/security.php/users/delete/",
+    "description": "Módulo para eliminar usuario",
+    "task": {
+        "key": "task.security.users.delete",
+        "name": "Acceso a eliminar usuario",
+        "description": "Permitir eliminar usuario",
+        "pattern": "delete"
+    },
+    "event": {
+        "key": "event.security.users.delete.success",
+        "description": "Usuario eliminado"
+    }
+}

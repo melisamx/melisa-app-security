@@ -1,4 +1,6 @@
-<?php namespace App\Security\Database\Seeds\Modules\Universal\Users;
+<?php
+
+namespace App\Security\Database\Seeds\Modules\Universal\Users;
 
 use Melisa\Laravel\Database\InstallSeeder;
 

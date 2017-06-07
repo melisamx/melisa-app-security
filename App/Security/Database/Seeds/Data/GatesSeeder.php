@@ -1,4 +1,6 @@
-<?php namespace App\Security\Database\Seeds\Data;
+<?php
+
+namespace App\Security\Database\Seeds\Data;
 
 use Melisa\Laravel\Database\InstallSeeder;
 use App\Security\Models\Gates;
@@ -12,13 +14,11 @@ class GatesSeeder extends InstallSeeder
 {
     
     public function run()
-    {
-        
+    {        
         Gates::updateOrCreate([
             'key'=>'*',
             'description'=>'All actions'
-        ]);
-        
+        ]);        
     }
     
 }
