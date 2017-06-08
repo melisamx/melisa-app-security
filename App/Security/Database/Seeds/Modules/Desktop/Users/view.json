@@ -1,0 +1,24 @@
+{
+    "name": "Ver usuarios",
+    "url": "/security.php/modules/users/view",
+    "description": "Módulo interfaz para ver usuarios",
+    "nameSpace": "Melisa.security.view.desktop.users.view.Wrapper",
+    "task": {
+        "key": "task.security.users.view.access",
+        "name": "Acceso a ver usuarios",
+        "description": "Permitir acceso a ver usuarios",
+        "pattern": "access"
+    },
+    "option": {
+        "key": "option.security.users.view.access",
+        "name": "Opción para ver usuarios",
+        "text": "Usuarios",
+        "iconClassSmall": "x-fa fa fa-users",
+        "iconClassMedium": "x-fa fa fa-users",
+        "iconClassLarge": "x-fa fa fa-users"
+    },
+    "event": {
+        "key": "event.security.users.view.access",
+        "description": "Acceso al módulo ver usuarios"
+    }
+}

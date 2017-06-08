@@ -1,78 +1,37 @@
 Ext.define('Melisa.security.view.desktop.users.add.Wrapper', {
-    extend: 'Ext.form.Panel',
+    extend: 'Ext.window.Window',
     
     requires: [
-        'Melisa.core.Module'
+        'Melisa.core.Module',
+        'Melisa.controller.Create',
+        'Melisa.security.view.desktop.users.add.Form'
     ],
     
     mixins: [
         'Melisa.core.Module'
     ],
     
-    layout: {
-        type: 'vbox',
-        align: 'stretch'
-    },
-    viewModel: {
-        stores: {
-            scopes: {
-                autoLoad: false,
-                remoteFilter: true,
-                proxy: {
-                    type: 'ajax',
-                    url: '{modules.scopes}',
-                    reader: {
-                        type: 'json',
-                        rootProperty: 'data'
-                    }
-                }
-            }
-        }
-    },    
+    width: '50%',
+    iconCls: 'x-fa fa-users',
+    defaultFocus: 'txtName',
+    controller: 'create',
+    layout: 'fit',
+    minWidth: 400,
+    modal: true,
+    viewModel: {},    
     items: [
         {
-            xtype: 'textfield',
-            name: 'nombre',
-            fieldLabel: 'Nombre'
-        },
-        {
-            xtype: 'textfield',
-            name: 'patente',
-            fieldLabel: 'Patente'
-        },
-        {
-            xtype: 'combobox',
-            name: 'idScope',
-            fieldLabel: 'Ambito',
-            displayField: 'name',
-            allowBlank: false,
-            bind: {
-                store: '{scopes}'
-            }
-        },
-        {
-            xtype: 'htmleditor',
-            name: 'data',
-            fieldLabel: 'Firma',
-            labelAlign: 'top',
-            enableColors: false,
-            enableFont: false,
-            enableSourceEdit: false,
-            enableLists: false,
-            enableLinks: false,
-            flex: 1
+            xtype: 'securityUsersAddForm'
         }
-    ],    
-    bbar: [
-        '->',
-        {
-            text: 'Guardar',
-            scale: 'large',
-            iconCls: 'x-fa fa-save',
-            listeners: {
-                click: 'save'
-            }
+    ],
+    bbar: {
+        xtype: 'toolbardefault'
+    },
+    listeners: {
+        successsubmit: function(e, response, action) {
+            console.log(arguments);
+            Ext.GlobalEvents.fireEvent('app.security.users.create.success', action.result);
         }
-    ]
+    }
     
 });

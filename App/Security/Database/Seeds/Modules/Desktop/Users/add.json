@@ -1,0 +1,21 @@
+{
+    "name": "Agregar usuarios",
+    "url": "/security.php/modules/users/add",
+    "description": "Módulo interfaz para agregar users",
+    "nameSpace": "Melisa.security.view.desktop.users.add.Wrapper",
+    "task": {
+        "key": "task.security.users.add.access",
+        "name": "Acceso a agregar usuarios",
+        "description": "Permitir acceso a agregar usuarios",
+        "pattern": "access"
+    },
+    "option": {
+        "key": "option.security.users.add.access",
+        "name": "Opción para agregar usuarios",
+        "text": "Agregar usuarios"
+    },
+    "event": {
+        "key": "event.security.users.add.access",
+        "description": "Acceso al módulo agregar usuarios"
+    }
+}

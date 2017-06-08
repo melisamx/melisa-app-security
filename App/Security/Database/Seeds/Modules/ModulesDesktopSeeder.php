@@ -1,13 +1,15 @@
-<?php namespace App\Security\Database\Seeds\Modules;
+<?php
 
-use Illuminate\Database\Seeder;
+namespace App\Security\Database\Seeds\Modules;
+
+use Melisa\Laravel\Database\InstallSeeder;
 
 /**
  * 
  *
  * @author Luis Josafat Heredia Contreras
  */
-class ModulesDesktopSeeder extends Seeder
+class ModulesDesktopSeeder extends InstallSeeder
 {
     
     public function run()
@@ -24,8 +26,10 @@ class ModulesDesktopSeeder extends Seeder
     
     public function users()
     {
-        $this->call(Desktop\Users\ViewSeeder::class);
-        $this->call(Desktop\Users\AddSeeder::class);
+        $this->installModuleJson('Desktop/Users', [
+            'add',
+            'view',
+        ]);
     }
     
     public function scopes()

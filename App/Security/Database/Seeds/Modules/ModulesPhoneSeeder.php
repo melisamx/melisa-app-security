@@ -1,8 +1,10 @@
-<?php namespace App\Security\Database\Seeds\Modules;
+<?php
 
-use Illuminate\Database\Seeder;
+namespace App\Security\Database\Seeds\Modules;
 
-class ModulesPhoneSeeder extends Seeder
+use Melisa\Laravel\Database\InstallSeeder;
+
+class ModulesPhoneSeeder extends InstallSeeder
 {
     
     public function run()

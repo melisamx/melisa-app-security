@@ -9,13 +9,11 @@ use App\Security\Http\Requests\Users\PagingRequest;
 use App\Security\Http\Requests\Users\DeactivateRequest;
 use App\Security\Http\Requests\Users\ActivateRequest;
 use App\Security\Http\Requests\Users\CreateRequest;
-use App\Security\Http\Requests\Users\UpdateRequest;
 use App\Security\Http\Requests\Users\DeleteRequest;
 
 use App\Security\Logics\Users\DeactivateLogic;
 use App\Security\Logics\Users\ActivateLogic;
 use App\Security\Logics\Users\CreateLogic;
-use App\Security\Logics\Users\UpdateLogic;
 use App\Security\Logics\Users\DeleteLogic;
 
 use App\Core\Repositories\UsersRepository;
@@ -44,6 +42,18 @@ class UsersController extends Controller
     
     public function activate(ActivateRequest $request, ActivateLogic $logic)
     {      
+        $result = $logic->init($request->allValid());
+        return response()->data($result);
+    }
+    
+    public function create(CreateRequest $request, CreateLogic $logic)
+    {   
+        $result = $logic->init($request->allValid());
+        return response()->data($result);
+    }
+    
+    public function delete(DeleteRequest $request, DeleteLogic $logic)
+    {   
         $result = $logic->init($request->allValid());
         return response()->data($result);
     }

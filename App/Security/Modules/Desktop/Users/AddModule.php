@@ -1,4 +1,6 @@
-<?php namespace App\Security\Modules\Users;
+<?php
+
+namespace App\Security\Modules\Desktop\Users;
 
 use App\Core\Logics\Modules\Outbuildings;
 
@@ -12,14 +14,14 @@ class AddModule extends Outbuildings
     
     public $event = 'security.users.add.access';
     
-    public function dataDictionary() {
-        
+    public function dataDictionary()
+    {        
         return [
             'success'=>true,
             'data'=>[
                 'token'=>csrf_token(),
                 'modules'=>[
-                    'create'=>$this->module('task.security.users.create'),
+                    'submit'=>$this->module('task.security.users.create'),
                 ],
                 'wrapper'=>[
                     'title'=>'Agregar usuario'
@@ -30,8 +32,7 @@ class AddModule extends Outbuildings
                     'frmMessageLoading'=>'Guardando cambios'
                 ],
             ]
-        ];
-        
+        ];        
     }
     
 }
