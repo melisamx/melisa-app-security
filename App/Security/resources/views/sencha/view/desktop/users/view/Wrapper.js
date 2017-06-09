@@ -37,9 +37,7 @@ Ext.define('Melisa.security.view.desktop.users.view.Wrapper', {
             xtype: 'securityUsersViewIdentities',
             title: 'Identidades',
             split: true,
-            listeners: {
-                afterrender: 'onAfterRenderIdentities'
-            }
+            collapsed: true
         }
     ]
 });

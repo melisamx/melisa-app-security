@@ -42,7 +42,8 @@ Ext.define('Melisa.security.view.desktop.users.add.Form', {
         {
             xtype: 'checkbox',
             name: 'active',
-            fieldLabel: 'Activo'
+            fieldLabel: 'Activo',
+            checked: true
         }
     ]    
 });
