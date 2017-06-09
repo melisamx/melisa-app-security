@@ -8,7 +8,8 @@ Ext.define('Melisa.security.view.desktop.users.view.Wrapper', {
         'Melisa.ux.confirmation.Button',
         'Melisa.security.view.universal.users.view.WrapperModel',
         'Melisa.security.view.desktop.users.view.WrapperController',
-        'Melisa.security.view.desktop.users.view.Grid'
+        'Melisa.security.view.desktop.users.view.Grid',
+        'Melisa.security.view.desktop.users.view.Identities'
     ],
     
     mixins: [
@@ -25,9 +26,20 @@ Ext.define('Melisa.security.view.desktop.users.view.Wrapper', {
     items: [
         {
             region: 'center',
-            xtype: 'securityUsersViewGrid'
+            xtype: 'securityUsersViewGrid',
+            listeners: {
+                selectionchange: 'onSelectionchangeGrid'
+            }
+        },
+        {
+            region: 'east',
+            width: '70%',
+            xtype: 'securityUsersViewIdentities',
+            title: 'Identidades',
+            split: true,
+            listeners: {
+                afterrender: 'onAfterRenderIdentities'
+            }
         }
     ]
-    
-    
 });

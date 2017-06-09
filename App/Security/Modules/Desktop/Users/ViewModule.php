@@ -29,6 +29,12 @@ class ViewModule extends Outbuildings
                     'deactivate'=>$this->module('task.security.users.deactivate', false),
                     'activate'=>$this->module('task.security.users.activate', false),
                     'add'=>$this->module('task.security.users.add.access', false),
+                    'identities'=>$this->module('task.security.identities.paging'),
+                    'identitiesAdd'=>$this->module('task.security.identities.add.access', false),
+                    'identitiesDeactive'=>$this->module('task.security.identities.deactivate', false),
+                    'identitiesUpdate'=>$this->module('task.security.identities.update', false),
+                    'identitiesActive'=>$this->module('task.security.identities.activate', false),
+                    'identitiesDelete'=>$this->module('task.security.identities.delete', false),
                 ],
             ]
         ];        

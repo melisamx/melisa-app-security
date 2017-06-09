@@ -1,0 +1,11 @@
+{
+    "name": "Paginar lista de identidades",
+    "url": "/security.php/identities/",
+    "description": "Módulo para paginar lista de identidades",
+    "task": {
+        "key": "task.security.identities.paging",
+        "name": "Paginar lista de identidades",
+        "description": "Permitir paginar lista de identidades",
+        "pattern": "read"
+    }
+}

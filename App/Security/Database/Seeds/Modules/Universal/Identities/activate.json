@@ -1,0 +1,15 @@
+{
+    "name": "Activar identidad",
+    "url": "/security.php/identities/activate/",
+    "description": "Módulo para activar identidad",
+    "task": {
+        "key": "task.security.identities.activate",
+        "name": "Acceso a activar identidad",
+        "description": "Permitir activar identidad",
+        "pattern": "update"
+    },
+    "event": {
+        "key": "event.security.identities.activate.success",
+        "description": "Identidad activada"
+    }
+}

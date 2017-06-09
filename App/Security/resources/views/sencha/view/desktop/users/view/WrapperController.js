@@ -15,7 +15,28 @@ Ext.define('Melisa.security.view.desktop.users.view.WrapperController', {
     
     storeReload: 'users',
     windowReportConfig: {
-        title: 'Cliente',
-        neverCache: true
+        title: 'Usuario'
     },
+    
+    onSelectionchangeGrid: function(sm, selection) {
+        var me = this,
+            vm = me.getViewModel(),
+            view = me.getView();
+    
+        if( Ext.isEmpty(selection)) {
+            vm.set('hiddenColumns', false);
+            view.down('securityUsersViewIdentities').collapse();
+        } else {
+            vm.set('hiddenColumns', true);
+            view.down('securityUsersViewIdentities').expand();
+            vm.set('idUser', selection[0].get('id'));
+            vm.notify();
+            vm.getStore('identities').load();
+        }
+    },
+    
+    onAfterRenderIdentities: function(cmp) {
+        cmp.collapse();
+    }
+    
 });

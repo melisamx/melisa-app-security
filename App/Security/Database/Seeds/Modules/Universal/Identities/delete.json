@@ -1,0 +1,15 @@
+{
+    "name": "Eliminar identidad",
+    "url": "/security.php/identities/delete/",
+    "description": "Módulo para eliminar identidad",
+    "task": {
+        "key": "task.security.identities.delete",
+        "name": "Acceso a eliminar identidad",
+        "description": "Permitir eliminar identidad",
+        "pattern": "delete"
+    },
+    "event": {
+        "key": "event.security.identities.delete.success",
+        "description": "Identidad eliminada"
+    }
+}

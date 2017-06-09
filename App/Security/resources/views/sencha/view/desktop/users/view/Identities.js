@@ -1,71 +1,40 @@
-Ext.define('Melisa.security.view.desktop.users.view.Grid', {
+Ext.define('Melisa.security.view.desktop.users.view.Identities', {
     extend: 'Ext.grid.Panel',
-    alias: 'widget.securityUsersViewGrid',
+    alias: 'widget.securityUsersViewIdentities',
     
-    emptyText: 'No hay usuarios registrados',
+    emptyText: 'Usuario sin identidades registradas',
     deferEmptyText: true,
     bind: {
-        store: '{users}'
+        store: '{identities}'
     },
     columns: [
         {
-            text: 'Usuario',
-            dataIndex: 'name',
+            text: 'Perfil',
+            dataIndex: 'profile',
             flex: 1
         },
         {
-            xtype: 'booleancolumn',
-            text: 'Activo',
-            dataIndex: 'active',
-            trueText: 'Si',
-            falseText: 'No',
-            align: 'center',
-            width: 90,
-            bind: {
-                hidden: '{hiddenColumns}'
-            }
+            text: 'Nombre',
+            dataIndex: 'displayEspecific',
+            flex: 1
+        },
+        {
+            text: 'Nombregeneral',
+            dataIndex: 'display',
+            flex: 1,
+            hidden: true
         },
         {
             xtype: 'booleancolumn',
-            text: 'Cambiar contraseña',
-            dataIndex: 'changePassword',
-            trueText: 'Si',
-            falseText: 'No',
-            align: 'center',
-            width: 180,
-            bind: {
-                hidden: '{hiddenColumns}'
-            }
-        },
-        {
-            xtype: 'booleancolumn',
-            text: 'Primer inicio',
-            dataIndex: 'firstLogin',
-            align: 'center',
-            width: 140,
-            bind: {
-                hidden: '{hiddenColumns}'
-            }
-        },
-        {
-            xtype: 'booleancolumn',
-            text: 'De sistema?',
-            dataIndex: 'isSystem',
-            align: 'center',
-            width: 125,
-            bind: {
-                hidden: '{hiddenColumns}'
-            }
+            text: 'Activa',
+            dataIndex: 'active'
         },
         {
             xtype: 'datecolumn',
             dataIndex: 'createdAt',
             text: 'Fecha creación',
             format:'d/m/Y h:i:s a',
-            width: 180,
-            bind: {
-                hidden: '{hiddenColumns}'
-            }
+            width: 180
         },
         {
             xtype: 'datecolumn',
@@ -84,10 +53,10 @@ Ext.define('Melisa.security.view.desktop.users.view.Grid', {
             widget: {
                 xtype: 'button',
                 iconCls: 'x-fa fa-pencil',
-                tooltip: 'Modificar usuario',
+                tooltip: 'Modificar identidad',
                 bind: {
-                    melisa: '{modules.update}',
-                    hidden: '{!modules.update.allowed}'
+                    melisa: '{modules.identitiesUpdate}',
+                    hidden: '{!modules.identitiesUpdate.allowed}'
                 },
                 listeners: {
                     click: 'moduleRun',
@@ -101,10 +70,10 @@ Ext.define('Melisa.security.view.desktop.users.view.Grid', {
             widget: {
                 xtype: 'button',
                 iconCls: 'x-fa fa-trash',
-                tooltip: 'Eliminar usuario',
+                tooltip: 'Eliminar identidad',
                 bind: {
-                    melisa: '{modules.delete}',
-                    hidden: '{!modules.delete.allowed}'
+                    melisa: '{modules.identitiesDelete}',
+                    hidden: '{!modules.identitiesDelete.allowed}'
                 },
                 plugins: {
                     ptype: 'buttonconfirmation'
@@ -117,8 +86,8 @@ Ext.define('Melisa.security.view.desktop.users.view.Grid', {
             widget: {
                 xtype: 'button',
                 bind: {
-                    melisa: '{record.active ? modules.deactivate : modules.activate}',
-                    hidden: '{record.active ? !modules.deactivate.allowed : !modules.activate.allowed}',
+                    melisa: '{record.active ? modules.identitiesDeactive : modules.identitiesActive}',
+                    hidden: '{record.active ? !modules.identitiesDeactive.allowed : !modules.identitiesActive.allowed}',
                     iconCls: '{record.active ? "x-fa fa-thumbs-down" : "x-fa fa-thumbs-up" }',
                     tooltip: '{record.active ? "Desactivar" : "Activar"}'
                 },
@@ -139,10 +108,10 @@ Ext.define('Melisa.security.view.desktop.users.view.Grid', {
         {
             ptype: 'autofilters',
             filters: {
-                name: {
+                displayEspecific: {
                     operator: 'like'
                 },
-                email: {
+                profile: {
                     operator: 'like'
                 }
             },
@@ -150,18 +119,6 @@ Ext.define('Melisa.security.view.desktop.users.view.Grid', {
                 'createdAt',
                 'updatedAt'
             ]
-        },
-        {
-            ptype: 'floatingbutton',
-            configButton: {
-                handler: 'moduleRun',
-                iconCls: 'x-fa fa-plus',
-                scale: 'large',
-                bind: {
-                    melisa: '{modules.add}',
-                    hidden: '{!modules.add.allowed}'
-                }
-            }
         }
     ]
 });

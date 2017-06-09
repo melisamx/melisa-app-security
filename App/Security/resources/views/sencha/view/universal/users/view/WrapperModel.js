@@ -16,7 +16,7 @@ Ext.define('Melisa.security.view.universal.users.view.WrapperModel', {
                 }
             }
         },
-        profiles: {
+        identities: {
             remoteFilter: true,
             remoteSort: true,
             filters: [
@@ -27,7 +27,7 @@ Ext.define('Melisa.security.view.universal.users.view.WrapperModel', {
             ],
             proxy: {
                 type: 'ajax',
-                url: '{modules.profiles}',
+                url: '{modules.identities}',
                 reader: {
                     type: 'json',
                     rootProperty: 'data'

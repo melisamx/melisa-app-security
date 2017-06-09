@@ -12,16 +12,28 @@ class ModulesUniversalSeeder extends InstallSeeder
         $this->users();
         $this->scopes();
         $this->passwordless();
+        $this->identities();
+    }
+    
+    public function identities()
+    {
+        $this->installModuleJson('Universal/Identities', [
+            'create',
+            'delete',
+            'deactivate',
+            'activate',
+            'paging',
+        ]);
     }
     
     public function users()
     {
-        $this->call(Universal\Users\PagingSeeder::class);
         $this->installModuleJson('Universal/Users', [
             'create',
             'delete',
             'deactivate',
             'activate',
+            'paging',
         ]);
     }
     

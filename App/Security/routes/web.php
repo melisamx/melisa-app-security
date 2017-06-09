@@ -41,3 +41,10 @@ Route::group([
 ], function() {    
     require realpath(base_path() . '/routes/modules/scopes.php');    
 });
+
+Route::group([
+    'prefix'=>'identities',
+    'middleware' => 'auth'
+], function() {    
+    require realpath(base_path() . '/routes/modules/identities.php');    
+});

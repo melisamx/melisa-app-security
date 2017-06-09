@@ -1,0 +1,15 @@
+{
+    "name": "Desactivar identidad",
+    "url": "/security.php/identities/deactivate/",
+    "description": "Módulo para desactivar identidad",
+    "task": {
+        "key": "task.security.identities.deactivate",
+        "name": "Acceso a desactivar identidad",
+        "description": "Permitir desactivar identidad",
+        "pattern": "update"
+    },
+    "event": {
+        "key": "event.security.identities.deactivate.success",
+        "description": "Identidad desactivada"
+    }
+}
