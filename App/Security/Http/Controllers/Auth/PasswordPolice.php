@@ -25,7 +25,7 @@ trait PasswordPolice
         'required',
         'min:3',
         'max:30',
-        'regex:/^(?=(?:.*[A-Z]){1,})(?=(?:.*[a-z]){1,})(?=(?:.*[a-z]){1,})(?=(?:.*\d){1,})(?=(?:.*[!@#$%&*()\-_=+{};:,]){1,})(.{3,})$/'
+        'regex:/^(?=(?:.*[A-Z]){1,})(?=(?:.*[a-z]){1,})(?=(?:.*[a-z]){1,})(?=(?:.*\d){1,})(?=(?:.*[!@#$%&*()\-_=+{};:,]){1,})(.{6,})$/'
     ];
     
     protected $messagePasswordValidation = 'La contraseña no cumple con las politicas de seguridad. '
