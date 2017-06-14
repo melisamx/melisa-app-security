@@ -1,4 +1,6 @@
-<?php namespace App\Security\Database\Seeds\Faker;
+<?php
+
+namespace App\Security\Database\Seeds\Faker;
 
 use Melisa\Laravel\Database\InstallSeeder;
 use App\Security\Models\SecurityGroups;
@@ -14,8 +16,7 @@ class SecurityGroupsGatesSeeder extends InstallSeeder
 {
     
     public function run()
-    {
-        
+    {        
         $identity = $this->findIdentity();
         $gate = Gates::where('key', 'task.lamina.programaciones.view.access')->first();
         $securityGroup = SecurityGroups::where('name', 'gods')->first();
@@ -34,8 +35,7 @@ class SecurityGroupsGatesSeeder extends InstallSeeder
             'idGate'=>$gate->id,
         ], [
             'idIdentityCreated'=>$identity->id,
-        ]);
-                
+        ]);                
     }
     
 }

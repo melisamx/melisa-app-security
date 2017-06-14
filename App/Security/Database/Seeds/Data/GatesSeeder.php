@@ -19,6 +19,10 @@ class GatesSeeder extends InstallSeeder
             'key'=>'*',
             'description'=>'All actions'
         ]);        
+        Gates::updateOrCreate([
+            'key'=>'app.security.users.show.system',
+            'description'=>'Mostrar usuarios de sistema'
+        ]);        
     }
     
 }

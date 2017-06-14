@@ -1,4 +1,6 @@
-<?php namespace App\Security\Database\Seeds\Faker;
+<?php
+
+namespace App\Security\Database\Seeds\Faker;
 
 use Melisa\Laravel\Database\InstallSeeder;
 use App\Security\Models\SecurityGroups;
@@ -14,8 +16,7 @@ class SecurityGroupsSystemsSeeder extends InstallSeeder
 {
     
     public function run()
-    {
-        
+    {        
         $identity = $this->findIdentity();
         $securityGroup = SecurityGroups::where('name', 'default')->first();
         $systemSecurity = SystemsSecurity::where('key', 'usergod')->first();
@@ -35,13 +36,11 @@ class SecurityGroupsSystemsSeeder extends InstallSeeder
         ], [
             'idIdentityCreated'=>$identity->id,
             'order'=>1
-        ]);
-                
+        ]);                
     }
     
     public function groupsGodsAndDefault()
-    {
-        
+    {        
         $identity = $this->findIdentity();
         $securityGroup = SecurityGroups::where('name', 'gods')->first();
         $systemSecurity = SystemsSecurity::where('key', 'usergod')->first();
@@ -62,8 +61,7 @@ class SecurityGroupsSystemsSeeder extends InstallSeeder
         ], [
             'idIdentityCreated'=>$identity->id,
             'order'=>1
-        ]);
-        
+        ]);        
     }
     
 }

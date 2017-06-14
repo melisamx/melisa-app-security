@@ -1,4 +1,6 @@
-<?php namespace App\Security\Logics\SystemSecurity;
+<?php
+
+namespace App\Security\Logics\SystemSecurity;
 
 use Melisa\core\LogicBusiness;
 
@@ -12,21 +14,18 @@ class UserGod
     use LogicBusiness;
     
     public function init($gate)
-    {
-        
+    {        
         $user = $this->getUser();
         
         if( !$user) {
             return false;
         }
         
-        return $this->isValid($user, $gate);
-        
+        return $this->isValid($user, $gate);        
     }
     
     public function isValid(&$user, &$gate)
-    {
-        
+    {        
         if( !$user->isGod) {
             $this->info('user is not God, deny action');
             return false;
@@ -39,21 +38,18 @@ class UserGod
             return false;
         }
         
-        return true;
-        
+        return true;        
     }
     
     public function getUser()
-    {
-        
+    {        
         $user = request()->user();
         
         if( is_null($user)) {
             return $this->error('User Unauthenticated');
         }
         
-        return $user;
-        
+        return $user;        
     }
     
 }

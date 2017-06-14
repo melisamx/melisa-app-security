@@ -1,4 +1,6 @@
-<?php namespace App\Security\Database\Seeds\Faker;
+<?php
+
+namespace App\Security\Database\Seeds\Faker;
 
 use Melisa\Laravel\Database\InstallSeeder;
 use App\Security\Models\Applications;
@@ -16,8 +18,7 @@ class ApplicationsRolesSeeder extends InstallSeeder
 {
     
     public function run()
-    {
-        
+    {        
         $identity = $this->findIdentity();
         $application = Applications::where('key', 'lamina')->first();
         $task = Tasks::where('key', 'task.lamina.programaciones.view.access')->first();
@@ -42,8 +43,7 @@ class ApplicationsRolesSeeder extends InstallSeeder
             'idIdentity'=>$identity->id,
         ], [
             'idIdentityCreated'=>$identity->id,
-        ]);
-        
+        ]);        
     }
     
 }

@@ -1,4 +1,6 @@
-<?php namespace App\Security\Criteria\SecurityGroups\Gates;
+<?php
+
+namespace App\Security\Criteria\SecurityGroups\Gates;
 
 use Melisa\Repositories\Criteria\Criteria;
 use Melisa\Repositories\Contracts\RepositoryInterface;
@@ -12,8 +14,7 @@ class WithGroupCriteria extends Criteria
 {
     
     public function apply($model, RepositoryInterface $repository, array $input = [])
-    {
-        
+    {        
         return $model->join('gates as g', 'g.id', '=', 'securityGroupsGates.idGate')
             ->join('securityGroups as sg', 'sg.id', '=', 'securityGroupsGates.idSecurityGroup')
             ->join('securityGroupsSystems as sgs', 'sgs.idSecurityGroup', '=', 'sg.id')
@@ -31,8 +32,7 @@ class WithGroupCriteria extends Criteria
             ])
             ->where('g.key', $input['key'])
             ->orderBy('sg.order')
-            ->orderBy('sgs.order');
-        
+            ->orderBy('sgs.order');        
     }
     
 }

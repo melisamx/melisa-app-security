@@ -1,4 +1,6 @@
-<?php namespace App\Security\Database\Seeds\Faker;
+<?php
+
+namespace App\Security\Database\Seeds\Faker;
 
 use Melisa\Laravel\Database\InstallSeeder;
 use App\Security\Models\SecurityGroups;
@@ -13,8 +15,7 @@ class SecurityGroupsSeeder extends InstallSeeder
 {
     
     public function run()
-    {
-        
+    {        
         $identity = $this->findIdentity();
         
 //        SecurityGroups::updateOrCreate([
@@ -28,8 +29,7 @@ class SecurityGroupsSeeder extends InstallSeeder
         ], [
             'idIdentityCreated'=>$identity->id,
             'order'=>0,
-        ]);
-        
+        ]);        
     }
     
 }

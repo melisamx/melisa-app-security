@@ -13,8 +13,7 @@ class GatesSystemsSeeder extends InstallSeeder
 {
     
     public function run()
-    {        
-//        $this->installGateSystem('gate.security.passwordless.create', 'usergod');
+    {
         $this->installGateSystem('*', 'usergod');        
     }
     

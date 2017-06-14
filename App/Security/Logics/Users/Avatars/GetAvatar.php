@@ -1,4 +1,6 @@
-<?php namespace App\Security\Logics\Users\Avatars;
+<?php
+
+namespace App\Security\Logics\Users\Avatars;
 
 use App\Core\Repositories\UsersRepository;
 
@@ -18,19 +20,16 @@ class GetAvatar
     }
     
     public function init($user = null)
-    {
-        
+    {        
         if( is_null($user)) {
             $user = request()->user();
         }
         
-        return $this->getDefault($user);
-        
+        return $this->getDefault($user);        
     }
     
     public function getDefault(&$user)
-    {
-        
+    {        
         $avatars = $user->avatars;
         
         if( !$avatars->count()) {
@@ -51,8 +50,7 @@ class GetAvatar
             return [];
         }
         
-        return $avatarDefault;
-        
+        return $avatarDefault;        
     }
     
 }

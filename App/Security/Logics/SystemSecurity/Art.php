@@ -1,4 +1,6 @@
-<?php namespace App\Security\Logics\SystemSecurity;
+<?php
+
+namespace App\Security\Logics\SystemSecurity;
 
 use Melisa\core\LogicBusiness;
 use App\Security\Repositories\ApplicationsRTRepository;
@@ -17,16 +19,16 @@ class Art
     protected $artCriteria;
 
     public function __construct(
-            ApplicationsRTRepository $artRepo,
-            DefaultCriteria $artCriteria
-        ) {
+        ApplicationsRTRepository $artRepo,
+        DefaultCriteria $artCriteria
+    )
+    {
         $this->artRepo = $artRepo;
         $this->artCriteria = $artCriteria;
     }
     
     public function init($gate)
-    {
-        
+    {        
         $idIdentity = $this->getIdentity();
         
         if( !$idIdentity) {
@@ -39,13 +41,11 @@ class Art
             return false;
         }
         
-        return $this->isValidTasks($tasks);
-        
+        return $this->isValidTasks($tasks);        
     }
     
     public function isValidTasks(&$tasks)
-    {
-        
+    {        
         foreach($tasks as $task) {
             
             if( !$task->active) {
@@ -64,13 +64,11 @@ class Art
             
         }
         
-        return false;
-        
+        return false;        
     }
     
     public function getTasks($gate, $idIdentity)
     {
-        
         $tasks = $this->artRepo->getByCriteria($this->artCriteria, [
             'idIdentity'=>$idIdentity,
             'task'=>$gate
@@ -89,8 +87,7 @@ class Art
             'g'=>$gate
         ]);
         
-        return $tasks;
-        
+        return $tasks;        
     }
     
 }

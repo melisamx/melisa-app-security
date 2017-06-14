@@ -1,4 +1,6 @@
-<?php namespace App\Security\Logics;
+<?php
+
+namespace App\Security\Logics;
 
 use App\Security\Repositories\GatesRepository;
 use App\Security\Repositories\GatesSystemsRepository;
@@ -26,17 +28,16 @@ class GatesSecurity
         GatesSystemsRepository $gs,
         SecurityGroupsGatesRepository $sgg,
         WithGroupCriteria $sggCriteria
-    ) {
-        
+    )
+    {        
         $this->gates = $gates;
         $this->gatesSystems = $gs;
         $this->securityGroupsGates = $sgg;
-        $this->sggCriteria = $sggCriteria;
-        
+        $this->sggCriteria = $sggCriteria;        
     }
     
-    public function init($gateKey = '*') {
-        
+    public function init($gateKey = '*')
+    {        
         $gate = $this->gates->findBy('key', $gateKey);
         
         if( is_null($gate)) {            
@@ -54,18 +55,17 @@ class GatesSecurity
             'g'=>$gate
         ]);
         
-        return true;
-        
+        return true;        
     }
     
     public function runGroupSystems($gate)
-    {
-        
+    {        
         $securityGroupsGates = $this->securityGroupsGates->getByCriteria($this->sggCriteria, [
             'key'=>$gate->key
         ]);
         
         if( !$securityGroupsGates->count()) {
+            $this->debug('The gate is not referenced in any group, action allowed');
             return true;
         }
         
@@ -110,7 +110,7 @@ class GatesSecurity
                 continue;
             }
             
-            $this->error('Is not allowed, group {g} no allowed gate {ga} and is required', [
+            $this->info('Is not allowed, group {g} no allowed gate {ga} and is required', [
                 'g'=>$name,
                 'ga'=>$gate->key
             ]);
@@ -118,13 +118,11 @@ class GatesSecurity
             
         }
         
-        return true;
-        
+        return true;        
     }
     
     public function evaluateGroup($name, &$groupItems, $groupOneAllowed)
-    {
-        
+    {        
         $result = [];
         
         foreach($groupItems as $item) {
@@ -190,13 +188,11 @@ class GatesSecurity
             return false;
         }
         
-        return array_count_values($result)['1']  === $groupItems->count();
-        
+        return array_count_values($result)['1']  === $groupItems->count();        
     }
     
     public function runSystems($gate)
-    {
-        
+    {        
         $gatesSystems = $this->gatesSystems->findAllBy('idGate', $gate->id .'s');
         
         if( !count($gatesSystems)) {            
@@ -229,22 +225,17 @@ class GatesSecurity
             
         }
         
-        return $flag;
-        
+        return $flag;        
     }
     
     public function isAllowed($gate = '*')
-    {
-        
-        return $this->init($gate);
-        
+    {        
+        return $this->init($gate);        
     }
     
     public function forUser()
-    {
-        
-        return true;
-        
+    {        
+        return true;        
     }
     
 }

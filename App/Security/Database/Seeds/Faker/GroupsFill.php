@@ -1,4 +1,6 @@
-<?php namespace App\Security\Database\Seeds\Faker;
+<?php
+
+namespace App\Security\Database\Seeds\Faker;
 
 use Melisa\Laravel\Database\InstallSeeder;
 use App\Security\Models\SecurityGroups;
@@ -14,15 +16,12 @@ class GroupsFill extends InstallSeeder
 {
     
     public function run()
-    {
-        
-        $this->groupDefault();
-        
+    {        
+        $this->groupDefault();        
     }
     
     public function groupDefault()
-    {
-        
+    {        
         $identity = $this->findIdentity();
         
         /* all gates that are not grouped */
@@ -44,8 +43,7 @@ class GroupsFill extends InstallSeeder
                 'idIdentityCreated'=>$identity->id
             ]);
             
-        }
-        
+        }        
     }
     
 }
