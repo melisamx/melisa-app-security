@@ -20,4 +20,28 @@ class DeleteLogic extends BaseDeleteLogic
         $this->repository = $repository;        
     }
     
+    public function delete(&$input)
+    {
+        if( !$this->isValid($input['id'])) {
+            return false;
+        }
+        
+        return parent::delete($input);
+    }
+    
+    public function isValid(&$idUser)
+    {
+        $user = $this->repository->find($idUser);
+        
+        if( !$user) {
+            return false;
+        }
+        
+        if( !$user->isSystem) {
+            return true;
+        }
+        
+        return $this->error('Imposible eliminar usuario, ya que es de sistema');
+    }
+    
 }

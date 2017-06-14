@@ -41,7 +41,11 @@ class DeactivateLogic extends UpdateLogic
             return $this->error('El usuario ya se encuentra desactivado');
         }
         
-        return true;
+        if( !$user->isSystem) {
+            return true;
+        }
+        
+        return $this->error('El usuario es de sistema no es posible desactivarlo');
     }
     
 }
