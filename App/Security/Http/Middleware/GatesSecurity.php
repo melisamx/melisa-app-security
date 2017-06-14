@@ -21,7 +21,7 @@ class GatesSecurity
             return $this->cancelAction($request);
         }
         
-        if( !app('security')->isAllowed($gate)) {
+        if( !app('security')->isAllowed($gate, true)) {
             return response()->data(false);
         }
         

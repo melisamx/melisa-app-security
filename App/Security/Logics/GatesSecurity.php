@@ -22,6 +22,7 @@ class GatesSecurity
     protected $gatesSystems;
     protected $securityGroupsGates;
     protected $sggCriteria;
+    protected $showError = false;
 
     public function __construct(
         GatesRepository $gates, 
@@ -37,7 +38,7 @@ class GatesSecurity
     }
     
     public function init($gateKey = '*')
-    {        
+    {
         $gate = $this->gates->findBy('key', $gateKey);
         
         if( is_null($gate)) {            
@@ -56,6 +57,23 @@ class GatesSecurity
         ]);
         
         return true;        
+    }
+    
+    /**
+     * It is necessary to display messages when the error occurs from the midleware of the route
+     * @param type $message
+     * @param array $data
+     * @return boolean
+     */
+    public function showError($message, array $data = [])
+    {
+        $this->debug($message, $data);
+        
+        if( !$this->showError) {
+            return false;
+        }
+        
+        return $this->error($message, $data);
     }
     
     public function runGroupSystems($gate)
@@ -110,12 +128,11 @@ class GatesSecurity
                 continue;
             }
             
-            $this->info('Is not allowed, group {g} no allowed gate {ga} and is required', [
+            $this->showError('Is not allowed, group {g} no allowed gate {ga} and is required', [
                 'g'=>$name,
                 'ga'=>$gate->key
             ]);
-            return false;
-            
+            return false;            
         }
         
         return true;        
@@ -228,8 +245,9 @@ class GatesSecurity
         return $flag;        
     }
     
-    public function isAllowed($gate = '*')
+    public function isAllowed($gate = '*', $showError = false)
     {        
+        $this->showError = $showError;
         return $this->init($gate);        
     }
     
