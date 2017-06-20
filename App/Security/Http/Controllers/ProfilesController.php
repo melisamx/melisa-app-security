@@ -13,7 +13,8 @@ class ProfilesController extends CrudController
 {
     
     protected $paging = [
-        'request'=>'Profiles\PagingRequest'
+        'request'=>'Profiles\PagingRequest',
+        'criteria'=>'Profiles\PagingCriteria'
     ];
     
 }
