@@ -27,6 +27,10 @@ class CreateLogic extends BaseCreateLogic
     
     public function create(&$input)
     {
+        if( !$this->isValidProfile($input['idUser'], $input['idProfile'])) {
+            return false;
+        }
+        
         $idIdentity = parent::create($input);
         
         if( !$idIdentity) {
@@ -38,6 +42,28 @@ class CreateLogic extends BaseCreateLogic
         }
         
         return $idIdentity;
+    }
+    
+    public function isValidProfile($idUser, $idProfile)
+    {
+        $identities = $this->userIdentities->getModel()
+            ->join('identities as i', 'i.id', '=', 'usersIdentities.idIdentity')
+            ->where([
+                'idUser'=>$idUser
+            ])
+            ->get();
+        
+        if( !$identities->count()) {
+            return true;
+        }
+        
+        foreach($identities as $identity) {
+            if( $identity->idProfile === (int)$idProfile) {
+                return $this->error('El usuario ya cuenta con ese perfil');
+            }
+        }
+        
+        return true;
     }
     
     public function createUserIdentity($idUser, $idIdentity)
