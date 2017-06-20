@@ -2,7 +2,7 @@ Ext.define('Melisa.security.view.desktop.users.view.Identities', {
     extend: 'Ext.grid.Panel',
     alias: 'widget.securityUsersViewIdentities',
     
-    emptyText: 'Usuario sin perfiles registrados',
+    emptyText: 'Usuario sin perfiles',
     deferEmptyText: true,
     bind: {
         store: '{identities}'
@@ -70,13 +70,14 @@ Ext.define('Melisa.security.view.desktop.users.view.Identities', {
             widget: {
                 xtype: 'button',
                 iconCls: 'x-fa fa-trash',
-                tooltip: 'Eliminar identidad',
+                tooltip: 'Eliminar perfil',
                 bind: {
                     melisa: '{modules.identitiesDelete}',
                     hidden: '{!modules.identitiesDelete.allowed}'
                 },
                 plugins: {
-                    ptype: 'buttonconfirmation'
+                    ptype: 'buttonconfirmation',
+                    messageSuccess: 'Perfil eliminado'
                 }
             }
         },

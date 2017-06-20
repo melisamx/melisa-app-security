@@ -28,6 +28,7 @@ class AddModule extends Outbuildings
                     'title'=>'Agregar perfil'
                 ],
                 'i18n'=>[
+                    'success'=>'Perfil agregado',
                     'txtName'=>'Nombre',
                     'btnSave'=>'Guardar',
                     'frmMessageLoading'=>'Guardando identidad'

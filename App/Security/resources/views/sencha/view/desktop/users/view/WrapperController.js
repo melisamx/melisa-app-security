@@ -9,13 +9,19 @@ Ext.define('Melisa.security.view.desktop.users.view.WrapperController', {
     listen: {
         global: {
             'app.security.users.create.success': 'onUpdatedRecord',
-            'app.security.users.update.success': 'onUpdatedRecord'
+            'app.security.users.update.success': 'onUpdatedRecord',
+            'app.security.identities.create.success': 'onUpdatedProfiles',
+            'app.security.identities.update.success': 'onUpdatedProfiles'
         }
     },
     
     storeReload: 'users',
     windowReportConfig: {
         title: 'Usuario'
+    },
+    
+    onUpdatedProfiles: function() {
+        this.getViewModel().getStore('identities').load();
     },
     
     onSelectionchangeGrid: function(sm, selection) {

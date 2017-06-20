@@ -27,6 +27,7 @@ class AddModule extends Outbuildings
                     'title'=>'Agregar usuario'
                 ],
                 'i18n'=>[
+                    'success'=>'Usuario agregado',
                     'txtName'=>'Nombre',
                     'btnSave'=>'Guardar',
                     'frmMessageLoading'=>'Guardando cambios'
