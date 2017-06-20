@@ -1,4 +1,6 @@
-<?php namespace App\Security\Providers;
+<?php
+
+namespace App\Security\Providers;
 
 use Melisa\Laravel\Providers\RouteServiceProvider as RouteService;
 

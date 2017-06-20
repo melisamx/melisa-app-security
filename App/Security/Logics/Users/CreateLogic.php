@@ -20,4 +20,10 @@ class CreateLogic extends DefaultCreateLogic
         $this->repository = $repository;        
     }
     
+    public function create(&$input)
+    {
+        $input ['password']= bcrypt($input['password']);
+        return parent::create($input);
+    }
+    
 }
