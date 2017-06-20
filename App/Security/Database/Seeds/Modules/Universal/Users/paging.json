@@ -1,9 +1,9 @@
 {
     "name": "Paginar lista de users",
-    "url": "/insurance.php/users/",
+    "url": "/security.php/users/",
     "description": "Módulo para paginar lista de users",
     "task": {
-        "key": "task.insurance.users.paging",
+        "key": "task.security.users.paging",
         "name": "Paginar lista de users",
         "description": "Permitir paginar lista de users",
         "pattern": "read"

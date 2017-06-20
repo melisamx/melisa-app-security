@@ -13,6 +13,14 @@ class ModulesUniversalSeeder extends InstallSeeder
         $this->scopes();
         $this->passwordless();
         $this->identities();
+        $this->profiles();
+    }
+    
+    public function profiles()
+    {
+        $this->installModuleJson('Universal/Profiles', [
+            'paging',
+        ]);
     }
     
     public function identities()

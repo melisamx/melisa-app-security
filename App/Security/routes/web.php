@@ -48,3 +48,10 @@ Route::group([
 ], function() {    
     require realpath(base_path() . '/routes/modules/identities.php');    
 });
+
+Route::group([
+    'prefix'=>'profiles',
+    'middleware' => 'auth'
+], function() {    
+    require realpath(base_path() . '/routes/modules/profiles.php');    
+});

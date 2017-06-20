@@ -17,11 +17,19 @@ class ModulesDesktopSeeder extends InstallSeeder
         $this->users();
         $this->scopes();
         $this->passwordless();
+        $this->identities();
     }
     
     public function passwordless()
     {
         $this->call(Desktop\Passwordless\ViewSeeder::class);
+    }
+    
+    public function identities()
+    {
+        $this->installModuleJson('Desktop/Identities', [
+            'add',
+        ]);
     }
     
     public function users()

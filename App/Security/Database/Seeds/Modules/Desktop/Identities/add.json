@@ -1,0 +1,21 @@
+{
+    "name": "Agregar identidades",
+    "url": "/security.php/modules/identities/add",
+    "description": "Módulo interfaz para agregar identities",
+    "nameSpace": "Melisa.security.view.desktop.identities.add.Wrapper",
+    "task": {
+        "key": "task.security.identities.add.access",
+        "name": "Acceso a agregar identidades",
+        "description": "Permitir acceso a agregar identidades",
+        "pattern": "access"
+    },
+    "option": {
+        "key": "option.security.identities.add.access",
+        "name": "Opción para agregar identidades",
+        "text": "Agregar identidades"
+    },
+    "event": {
+        "key": "event.security.identities.add.access",
+        "description": "Acceso al módulo agregar identidades"
+    }
+}

@@ -2,7 +2,7 @@ Ext.define('Melisa.security.view.desktop.users.view.Identities', {
     extend: 'Ext.grid.Panel',
     alias: 'widget.securityUsersViewIdentities',
     
-    emptyText: 'Usuario sin identidades registradas',
+    emptyText: 'Usuario sin perfiles registrados',
     deferEmptyText: true,
     bind: {
         store: '{identities}'
@@ -119,6 +119,22 @@ Ext.define('Melisa.security.view.desktop.users.view.Identities', {
                 'createdAt',
                 'updatedAt'
             ]
+        },
+        {
+            ptype: 'floatingbutton',
+            configButton: {
+                iconCls: 'x-fa fa-plus',
+                scale: 'large',
+                tooltip: 'Agregar identidad',
+                bind: {
+                    melisa: '{modules.identitiesAdd}',
+                    hidden: '{!modules.identitiesAdd.allowed}'
+                },
+                listeners: {
+                    click: 'moduleRun',
+                    loaded: 'onLoadedModuleAsociate'
+                }
+            }
         }
     ]
 });

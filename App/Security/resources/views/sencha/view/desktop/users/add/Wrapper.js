@@ -11,12 +11,11 @@ Ext.define('Melisa.security.view.desktop.users.add.Wrapper', {
         'Melisa.core.Module'
     ],
     
-    width: '50%',
     iconCls: 'x-fa fa-users',
     defaultFocus: 'txtName',
     controller: 'create',
     layout: 'fit',
-    minWidth: 400,
+    width: 400,
     modal: true,
     viewModel: {},    
     items: [

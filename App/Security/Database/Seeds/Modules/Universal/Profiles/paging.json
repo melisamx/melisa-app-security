@@ -1,0 +1,11 @@
+{
+    "name": "Paginar lista de perfiles",
+    "url": "/security.php/profiles/",
+    "description": "Módulo para paginar lista de perfiles",
+    "task": {
+        "key": "task.security.profiles.paging",
+        "name": "Paginar lista de perfiles",
+        "description": "Permitir paginar lista de perfiles",
+        "pattern": "read"
+    }
+}

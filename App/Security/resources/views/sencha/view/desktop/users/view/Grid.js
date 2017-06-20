@@ -123,7 +123,17 @@ Ext.define('Melisa.security.view.desktop.users.view.Grid', {
                     tooltip: '{record.active ? "Desactivar" : "Activar"}'
                 },
                 plugins: {
-                    ptype: 'buttonconfirmation'
+                    ptype: 'buttonconfirmation',
+                    getMessageConfirmation: function() {
+                        var me = this,
+                            button = me.getCmp(),
+                            record = button.getViewModel().get('record'),
+                            message = '¿Realmente desea ';
+                        
+                        return message + (
+                            record.get('active') ? 'desactivar' : 'activar'
+                        ) + ' el usuario?';
+                    }
                 }
             }
         }
@@ -157,6 +167,7 @@ Ext.define('Melisa.security.view.desktop.users.view.Grid', {
                 handler: 'moduleRun',
                 iconCls: 'x-fa fa-plus',
                 scale: 'large',
+                tooltip: 'Agregar usuario',
                 bind: {
                     melisa: '{modules.add}',
                     hidden: '{!modules.add.allowed}'

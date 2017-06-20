@@ -37,6 +37,15 @@ Ext.define('Melisa.security.view.desktop.users.view.WrapperController', {
     
     onAfterRenderIdentities: function(cmp) {
         cmp.collapse();
+    },
+    
+    onLoadedModuleAsociate: function(module, options) {
+        var me = this,
+            securityUsersViewGrid = me.getView().down('securityUsersViewGrid');
+    
+        module.fireEvent('loaddata', {
+            id: securityUsersViewGrid.getSelection()[0].get('id')
+        }, options.launcher);
     }
     
 });
