@@ -1,0 +1,24 @@
+{
+    "name": "Ver roles",
+    "url": "/security.php/modules/rbacRoles/view",
+    "description": "Módulo interfaz para ver roles",
+    "nameSpace": "Melisa.security.view.desktop.rbacRoles.view.Wrapper",
+    "task": {
+        "key": "task.security.rbacRoles.view.access",
+        "name": "Acceso a ver roles",
+        "description": "Permitir acceso a ver roles",
+        "pattern": "access"
+    },
+    "option": {
+        "key": "option.security.rbacRoles.view.access",
+        "name": "Opción para ver roles",
+        "text": "Roles",
+        "iconClassSmall": "x-fa fa fa-lock",
+        "iconClassMedium": "x-fa fa fa-lock",
+        "iconClassLarge": "x-fa fa fa-lock"
+    },
+    "event": {
+        "key": "event.security.rbacRoles.view.access",
+        "description": "Acceso al módulo ver roles"
+    }
+}

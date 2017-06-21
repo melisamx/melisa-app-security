@@ -1,33 +1,33 @@
-Ext.define('Melisa.security.view.desktop.users.view.Identities', {
+Ext.define('Melisa.security.view.desktop.rbacRoles.view.Tasks', {
     extend: 'Ext.grid.Panel',
-    alias: 'widget.securityUsersViewIdentities',
+    alias: 'widget.securityRbacRolesViewTasks',
     
-    emptyText: 'Usuario sin perfiles',
+    emptyText: 'Sin tareas privilegiadas',
     deferEmptyText: true,
     bind: {
-        store: '{identities}'
+        store: '{tasks}'
     },
     columns: [
         {
-            text: 'Perfil',
-            dataIndex: 'profile',
-            flex: 1
-        },
-        {
             text: 'Nombre',
-            dataIndex: 'displayEspecific',
+            dataIndex: 'task',
             flex: 1
         },
         {
-            text: 'Nombregeneral',
-            dataIndex: 'display',
+            text: 'Clave',
+            dataIndex: 'taskKey',
             flex: 1,
             hidden: true
         },
         {
             xtype: 'booleancolumn',
-            text: 'Activa',
+            text: 'Activo',
             dataIndex: 'active'
+        },
+        {
+            xtype: 'booleancolumn',
+            text: 'De sistema',
+            dataIndex: 'isSystem'
         },
         {
             xtype: 'datecolumn',
@@ -52,32 +52,15 @@ Ext.define('Melisa.security.view.desktop.users.view.Identities', {
             width: 30,
             widget: {
                 xtype: 'button',
-                iconCls: 'x-fa fa-pencil',
-                tooltip: 'Modificar identidad',
-                bind: {
-                    melisa: '{modules.identitiesUpdate}',
-                    hidden: '{!modules.identitiesUpdate.allowed}'
-                },
-                listeners: {
-                    click: 'moduleRun',
-                    loaded: 'onLoadedModuleUpdate'
-                }
-            }
-        },
-        {
-            xtype: 'widgetcolumn',
-            width: 30,
-            widget: {
-                xtype: 'button',
                 iconCls: 'x-fa fa-trash',
-                tooltip: 'Eliminar perfil',
+                tooltip: 'Eliminar tarea privilegiada',
                 bind: {
-                    melisa: '{modules.identitiesDelete}',
-                    hidden: '{!modules.identitiesDelete.allowed}'
+                    melisa: '{modules.tasksDelete}',
+                    hidden: '{!modules.tasksDelete.allowed}'
                 },
                 plugins: {
                     ptype: 'buttonconfirmation',
-                    messageSuccess: 'Perfil eliminado'
+                    messageSuccess: 'Tarea privilegiada eliminada'
                 }
             }
         },
@@ -87,8 +70,8 @@ Ext.define('Melisa.security.view.desktop.users.view.Identities', {
             widget: {
                 xtype: 'button',
                 bind: {
-                    melisa: '{record.active ? modules.identitiesDeactive : modules.identitiesActive}',
-                    hidden: '{record.active ? !modules.identitiesDeactive.allowed : !modules.identitiesActive.allowed}',
+                    melisa: '{record.active ? modules.tasksDeactive : modules.tasksActive}',
+                    hidden: '{record.active ? !modules.tasksDeactive.allowed : !modules.tasksActive.allowed}',
                     iconCls: '{record.active ? "x-fa fa-thumbs-down" : "x-fa fa-thumbs-up" }',
                     tooltip: '{record.active ? "Desactivar" : "Activar"}'
                 },
@@ -102,7 +85,7 @@ Ext.define('Melisa.security.view.desktop.users.view.Identities', {
                         
                         return message + (
                             record.get('active') ? 'desactivar' : 'activar'
-                        ) + ' el perfil?';
+                        ) + ' la tarea privilegiada?';
                     }
                 }
             }
@@ -119,10 +102,7 @@ Ext.define('Melisa.security.view.desktop.users.view.Identities', {
         {
             ptype: 'autofilters',
             filters: {
-                displayEspecific: {
-                    operator: 'like'
-                },
-                profile: {
+                task: {
                     operator: 'like'
                 }
             },
@@ -134,12 +114,12 @@ Ext.define('Melisa.security.view.desktop.users.view.Identities', {
         {
             ptype: 'floatingbutton',
             configButton: {
-                iconCls: 'x-fa fa-plus',
+                iconCls: 'x-fa fa-tasks',
                 scale: 'large',
-                tooltip: 'Agregar identidad',
+                tooltip: 'Agregar tarea privilegiada',
                 bind: {
-                    melisa: '{modules.identitiesAdd}',
-                    hidden: '{!modules.identitiesAdd.allowed}'
+                    melisa: '{modules.tasksAdd}',
+                    hidden: '{!modules.tasksAdd.allowed}'
                 },
                 listeners: {
                     click: 'moduleRun',

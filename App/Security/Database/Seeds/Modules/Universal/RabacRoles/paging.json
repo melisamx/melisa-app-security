@@ -1,0 +1,11 @@
+{
+    "name": "Paginar lista de rbacRoles",
+    "url": "/security.php/rbacRoles/",
+    "description": "Módulo para paginar lista de rbacRoles",
+    "task": {
+        "key": "task.security.rbacRoles.paging",
+        "name": "Paginar lista de rbacRoles",
+        "description": "Permitir paginar lista de rbacRoles",
+        "pattern": "read"
+    }
+}

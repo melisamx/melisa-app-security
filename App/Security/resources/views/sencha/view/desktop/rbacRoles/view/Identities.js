@@ -1,33 +1,27 @@
-Ext.define('Melisa.security.view.desktop.users.view.Identities', {
+Ext.define('Melisa.security.view.desktop.rbacRoles.view.Identities', {
     extend: 'Ext.grid.Panel',
-    alias: 'widget.securityUsersViewIdentities',
+    alias: 'widget.securityRbacRolesViewIdentities',
     
-    emptyText: 'Usuario sin perfiles',
+    emptyText: 'Rol sin miembros',
     deferEmptyText: true,
     bind: {
         store: '{identities}'
     },
     columns: [
         {
-            text: 'Perfil',
-            dataIndex: 'profile',
-            flex: 1
-        },
-        {
             text: 'Nombre',
-            dataIndex: 'displayEspecific',
+            dataIndex: 'identity',
             flex: 1
-        },
-        {
-            text: 'Nombregeneral',
-            dataIndex: 'display',
-            flex: 1,
-            hidden: true
         },
         {
             xtype: 'booleancolumn',
-            text: 'Activa',
+            text: 'Activo',
             dataIndex: 'active'
+        },
+        {
+            xtype: 'booleancolumn',
+            text: 'De sistema',
+            dataIndex: 'isSystem'
         },
         {
             xtype: 'datecolumn',
@@ -52,32 +46,15 @@ Ext.define('Melisa.security.view.desktop.users.view.Identities', {
             width: 30,
             widget: {
                 xtype: 'button',
-                iconCls: 'x-fa fa-pencil',
-                tooltip: 'Modificar identidad',
-                bind: {
-                    melisa: '{modules.identitiesUpdate}',
-                    hidden: '{!modules.identitiesUpdate.allowed}'
-                },
-                listeners: {
-                    click: 'moduleRun',
-                    loaded: 'onLoadedModuleUpdate'
-                }
-            }
-        },
-        {
-            xtype: 'widgetcolumn',
-            width: 30,
-            widget: {
-                xtype: 'button',
                 iconCls: 'x-fa fa-trash',
-                tooltip: 'Eliminar perfil',
+                tooltip: 'Eliminar perfil privilegiado',
                 bind: {
                     melisa: '{modules.identitiesDelete}',
                     hidden: '{!modules.identitiesDelete.allowed}'
                 },
                 plugins: {
                     ptype: 'buttonconfirmation',
-                    messageSuccess: 'Perfil eliminado'
+                    messageSuccess: 'Perfil privilegiado eliminado'
                 }
             }
         },
@@ -134,9 +111,9 @@ Ext.define('Melisa.security.view.desktop.users.view.Identities', {
         {
             ptype: 'floatingbutton',
             configButton: {
-                iconCls: 'x-fa fa-plus',
+                iconCls: 'x-fa fa-users',
                 scale: 'large',
-                tooltip: 'Agregar identidad',
+                tooltip: 'Agregar perfil privilegiado',
                 bind: {
                     melisa: '{modules.identitiesAdd}',
                     hidden: '{!modules.identitiesAdd.allowed}'

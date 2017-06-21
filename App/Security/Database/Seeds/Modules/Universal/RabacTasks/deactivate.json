@@ -1,0 +1,15 @@
+{
+    "name": "Desactivar tarea privilegiada de rol",
+    "url": "/security.php/rbacTasks/deactivate/",
+    "description": "Módulo para desactivar tarea privilegiada de rol",
+    "task": {
+        "key": "task.security.rbacTasks.deactivate",
+        "name": "Acceso a desactivar tarea privilegiada de rol",
+        "description": "Permitir desactivar tarea privilegiada de rol",
+        "pattern": "update"
+    },
+    "event": {
+        "key": "event.security.rbacTasks.deactivate.success",
+        "description": "Tarea privilegiada desactivada"
+    }
+}

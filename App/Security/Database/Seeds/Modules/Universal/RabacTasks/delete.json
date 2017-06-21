@@ -1,0 +1,15 @@
+{
+    "name": "Eliminar tarea privilegiada de un rol",
+    "url": "/security.php/rbacTasks/delete/",
+    "description": "Módulo para eliminar tarea privilegiada de rol",
+    "task": {
+        "key": "task.security.rbacTasks.delete",
+        "name": "Acceso a eliminar tarea privilegiada de rol",
+        "description": "Permitir eliminar tarea privilegiada de rol",
+        "pattern": "delete"
+    },
+    "event": {
+        "key": "event.security.rbacTasks.delete.success",
+        "description": "Tarea privilegiada de rol eliminada"
+    }
+}

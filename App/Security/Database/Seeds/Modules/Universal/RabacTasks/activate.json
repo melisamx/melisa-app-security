@@ -1,0 +1,15 @@
+{
+    "name": "Activar tarea privilegiada de rol",
+    "url": "/security.php/rbacTasks/activate/",
+    "description": "Módulo para activar tarea privilegiada de rol",
+    "task": {
+        "key": "task.security.rbacTasks.activate",
+        "name": "Acceso a activar tarea privilegiada de rol",
+        "description": "Permitir activar tarea privilegiada de rol",
+        "pattern": "update"
+    },
+    "event": {
+        "key": "event.security.rbacTasks.activate.success",
+        "description": "Tarea privilegiada de rol activada"
+    }
+}

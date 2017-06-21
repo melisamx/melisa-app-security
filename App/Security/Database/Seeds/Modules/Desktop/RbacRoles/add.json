@@ -1,0 +1,21 @@
+{
+    "name": "Agregar roles",
+    "url": "/security.php/modules/rbacRoles/add",
+    "description": "Módulo interfaz para agregar rbacRoles",
+    "nameSpace": "Melisa.security.view.desktop.rbacRoles.add.Wrapper",
+    "task": {
+        "key": "task.security.rbacRoles.add.access",
+        "name": "Acceso a agregar roles",
+        "description": "Permitir acceso a agregar roles",
+        "pattern": "access"
+    },
+    "option": {
+        "key": "option.security.rbacRoles.add.access",
+        "name": "Opción para agregar roles",
+        "text": "Agregar roles"
+    },
+    "event": {
+        "key": "event.security.rbacRoles.add.access",
+        "description": "Acceso al módulo agregar roles"
+    }
+}

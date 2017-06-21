@@ -27,6 +27,18 @@ class GatesSeeder extends InstallSeeder
             'key'=>'app.security.profiles.show.system',
             'description'=>'Mostrar perfiles de sistema'
         ]);        
+        Gates::updateOrCreate([
+            'key'=>'app.security.rbacRoles.show.system',
+            'description'=>'Mostrar roles privilegiados de sistema'
+        ]);        
+        Gates::updateOrCreate([
+            'key'=>'app.security.rbacTasks.show.system',
+            'description'=>'Mostrar tareas privilegiadas de sistema'
+        ]);        
+        Gates::updateOrCreate([
+            'key'=>'app.security.rbacIdentities.show.system',
+            'description'=>'Mostrar perfiles privilegiados de sistema'
+        ]);        
     }
     
 }

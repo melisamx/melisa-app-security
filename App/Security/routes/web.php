@@ -55,3 +55,24 @@ Route::group([
 ], function() {    
     require realpath(base_path() . '/routes/modules/profiles.php');    
 });
+
+Route::group([
+    'prefix'=>'rbacRoles',
+    'middleware' => 'auth'
+], function() {    
+    require realpath(base_path() . '/routes/modules/rbacRoles.php');    
+});
+
+Route::group([
+    'prefix'=>'rbacTasks',
+    'middleware' => 'auth'
+], function() {    
+    require realpath(base_path() . '/routes/modules/rbacTasks.php');    
+});
+
+Route::group([
+    'prefix'=>'rbacIdentities',
+    'middleware' => 'auth'
+], function() {    
+    require realpath(base_path() . '/routes/modules/rbacIdentities.php');    
+});

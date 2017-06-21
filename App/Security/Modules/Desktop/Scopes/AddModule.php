@@ -27,7 +27,7 @@ class AddModule extends Outbuildings
                 'i18n'=>[
                     'txtName'=>'Nombre',
                     'btnSave'=>'Guardar',
-                    'frmMessageLoading'=>'Guardando cambios'
+                    'saving'=>'Guardando cambios'
                 ]
             ]
         ];

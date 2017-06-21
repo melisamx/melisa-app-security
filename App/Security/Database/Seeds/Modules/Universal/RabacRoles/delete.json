@@ -1,0 +1,15 @@
+{
+    "name": "Eliminar rol",
+    "url": "/security.php/rbacRoles/delete/",
+    "description": "Módulo para eliminar rol",
+    "task": {
+        "key": "task.security.rbacRoles.delete",
+        "name": "Acceso a eliminar rol",
+        "description": "Permitir eliminar rol",
+        "pattern": "delete"
+    },
+    "event": {
+        "key": "event.security.rbacRoles.delete.success",
+        "description": "Rol eliminado"
+    }
+}

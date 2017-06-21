@@ -1,0 +1,15 @@
+{
+    "name": "Desactivar rol",
+    "url": "/security.php/rbacRoles/deactivate/",
+    "description": "Módulo para desactivar rol",
+    "task": {
+        "key": "task.security.rbacRoles.deactivate",
+        "name": "Acceso a desactivar rol",
+        "description": "Permitir desactivar rol",
+        "pattern": "update"
+    },
+    "event": {
+        "key": "event.security.rbacRoles.deactivate.success",
+        "description": "Rol desactivado"
+    }
+}

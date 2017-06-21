@@ -1,0 +1,15 @@
+{
+    "name": "Desactivar perfil privilegiado de rol",
+    "url": "/security.php/rbacIdentities/deactivate/",
+    "description": "Módulo para desactivar perfil privilegiado de rol",
+    "task": {
+        "key": "task.security.rbacIdentities.deactivate",
+        "name": "Acceso a desactivar perfil privilegiado de rol",
+        "description": "Permitir desactivar perfil privilegiado de rol",
+        "pattern": "update"
+    },
+    "event": {
+        "key": "event.security.rbacIdentities.deactivate.success",
+        "description": "Perfil privilegiado de rol desactivado"
+    }
+}

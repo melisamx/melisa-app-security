@@ -1,0 +1,15 @@
+{
+    "name": "Eliminar perfil privilegiado de un rol",
+    "url": "/security.php/rbacIdentities/delete/",
+    "description": "Módulo para eliminar perfil privilegiado de rol",
+    "task": {
+        "key": "task.security.rbacIdentities.delete",
+        "name": "Acceso a eliminar perfil privilegiado de rol",
+        "description": "Permitir eliminar perfil privilegiado de rol",
+        "pattern": "delete"
+    },
+    "event": {
+        "key": "event.security.rbacIdentities.delete.success",
+        "description": "Perfil privilegiado de rol eliminado"
+    }
+}

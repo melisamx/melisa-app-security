@@ -1,0 +1,11 @@
+{
+    "name": "Paginar lista de perfiles privilegiados de un rol",
+    "url": "/security.php/rbacIdentities/",
+    "description": "Módulo para paginar lista de perfiles privilegiados de rol",
+    "task": {
+        "key": "task.security.rbacIdentities.paging",
+        "name": "Paginar lista de perfiles privilegiados de rol",
+        "description": "Permitir paginar lista de perfiles privilegiados de rol",
+        "pattern": "read"
+    }
+}

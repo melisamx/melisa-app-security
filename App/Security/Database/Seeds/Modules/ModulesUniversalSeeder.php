@@ -14,6 +14,42 @@ class ModulesUniversalSeeder extends InstallSeeder
         $this->passwordless();
         $this->identities();
         $this->profiles();
+        $this->rbacRoles();
+        $this->rbacTasks();
+        $this->rbacIdentities();
+    }
+    
+    public function rbacIdentities()
+    {
+        $this->installModuleJson('Universal/RabacIdentities', [
+            'create',
+            'delete',
+            'deactivate',
+            'activate',
+            'paging',
+        ]);
+    }
+    
+    public function rbacTasks()
+    {
+        $this->installModuleJson('Universal/RabacTasks', [
+            'create',
+            'delete',
+            'deactivate',
+            'activate',
+            'paging',
+        ]);
+    }
+    
+    public function rbacRoles()
+    {
+        $this->installModuleJson('Universal/RabacRoles', [
+            'create',
+            'delete',
+            'deactivate',
+            'activate',
+            'paging',
+        ]);
     }
     
     public function profiles()

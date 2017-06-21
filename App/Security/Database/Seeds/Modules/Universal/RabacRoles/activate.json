@@ -1,0 +1,15 @@
+{
+    "name": "Activar rol",
+    "url": "/security.php/rbacRoles/activate/",
+    "description": "Módulo para activar rol",
+    "task": {
+        "key": "task.security.rbacRoles.activate",
+        "name": "Acceso a activar rol",
+        "description": "Permitir activar rol",
+        "pattern": "update"
+    },
+    "event": {
+        "key": "event.security.rbacRoles.activate.success",
+        "description": "Rol activado"
+    }
+}

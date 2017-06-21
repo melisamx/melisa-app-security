@@ -1,0 +1,15 @@
+{
+    "name": "Crear tarea privilegiada de rol",
+    "url": "/security.php/rbacTasks/",
+    "description": "Módulo para crear tarea privilegiada de rol",
+    "task": {
+        "key": "task.security.rbacTasks.create",
+        "name": "Acceso a crear tarea privilegiada de rol",
+        "description": "Permitir crear tarea privilegiada de rol",
+        "pattern": "create"
+    },
+    "event": {
+        "key": "event.security.rbacTasks.create.success",
+        "description": "Tarea privilegiada de rol creada"
+    }
+}

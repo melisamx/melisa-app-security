@@ -23,3 +23,15 @@ Route::group([
 ], function() {    
     require realpath(base_path() . '/routes/modules/identities.php');    
 });
+
+Route::group([
+    'prefix'=>'rbacRoles'
+], function() {    
+    require realpath(base_path() . '/routes/modules/rbacRoles.php');    
+});
+
+Route::group([
+    'prefix'=>'rbacIdentities'
+], function() {    
+    require realpath(base_path() . '/routes/modules/rbacIdentities.php');    
+});

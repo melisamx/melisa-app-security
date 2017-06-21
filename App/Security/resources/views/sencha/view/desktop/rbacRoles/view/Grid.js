@@ -1,40 +1,49 @@
-Ext.define('Melisa.security.view.desktop.users.view.Identities', {
+Ext.define('Melisa.security.view.desktop.rbacRoles.view.Grid', {
     extend: 'Ext.grid.Panel',
-    alias: 'widget.securityUsersViewIdentities',
+    alias: 'widget.securityRbacRolesViewGrid',
     
-    emptyText: 'Usuario sin perfiles',
+    emptyText: 'No hay roles',
     deferEmptyText: true,
     bind: {
-        store: '{identities}'
+        store: '{roles}'
     },
     columns: [
         {
-            text: 'Perfil',
-            dataIndex: 'profile',
+            text: 'Rol',
+            dataIndex: 'role',
             flex: 1
-        },
-        {
-            text: 'Nombre',
-            dataIndex: 'displayEspecific',
-            flex: 1
-        },
-        {
-            text: 'Nombregeneral',
-            dataIndex: 'display',
-            flex: 1,
-            hidden: true
         },
         {
             xtype: 'booleancolumn',
-            text: 'Activa',
-            dataIndex: 'active'
+            text: 'Activo',
+            dataIndex: 'active',
+            trueText: 'Si',
+            falseText: 'No',
+            align: 'center',
+            width: 90,
+            bind: {
+                hidden: '{hiddenColumns}'
+            }
+        },
+        {
+            xtype: 'booleancolumn',
+            text: 'De sistema?',
+            dataIndex: 'isSystem',
+            align: 'center',
+            width: 125,
+            bind: {
+                hidden: '{hiddenColumns}'
+            }
         },
         {
             xtype: 'datecolumn',
             dataIndex: 'createdAt',
             text: 'Fecha creación',
             format:'d/m/Y h:i:s a',
-            width: 180
+            width: 180,
+            bind: {
+                hidden: '{hiddenColumns}'
+            }
         },
         {
             xtype: 'datecolumn',
@@ -53,10 +62,10 @@ Ext.define('Melisa.security.view.desktop.users.view.Identities', {
             widget: {
                 xtype: 'button',
                 iconCls: 'x-fa fa-pencil',
-                tooltip: 'Modificar identidad',
+                tooltip: 'Modificar rol',
                 bind: {
-                    melisa: '{modules.identitiesUpdate}',
-                    hidden: '{!modules.identitiesUpdate.allowed}'
+                    melisa: '{modules.update}',
+                    hidden: '{!modules.update.allowed}'
                 },
                 listeners: {
                     click: 'moduleRun',
@@ -70,14 +79,13 @@ Ext.define('Melisa.security.view.desktop.users.view.Identities', {
             widget: {
                 xtype: 'button',
                 iconCls: 'x-fa fa-trash',
-                tooltip: 'Eliminar perfil',
+                tooltip: 'Eliminar rol',
                 bind: {
-                    melisa: '{modules.identitiesDelete}',
-                    hidden: '{!modules.identitiesDelete.allowed}'
+                    melisa: '{modules.delete}',
+                    hidden: '{!modules.delete.allowed}'
                 },
                 plugins: {
-                    ptype: 'buttonconfirmation',
-                    messageSuccess: 'Perfil eliminado'
+                    ptype: 'buttonconfirmation'
                 }
             }
         },
@@ -87,8 +95,8 @@ Ext.define('Melisa.security.view.desktop.users.view.Identities', {
             widget: {
                 xtype: 'button',
                 bind: {
-                    melisa: '{record.active ? modules.identitiesDeactive : modules.identitiesActive}',
-                    hidden: '{record.active ? !modules.identitiesDeactive.allowed : !modules.identitiesActive.allowed}',
+                    melisa: '{record.active ? modules.deactivate : modules.activate}',
+                    hidden: '{record.active ? !modules.deactivate.allowed : !modules.activate.allowed}',
                     iconCls: '{record.active ? "x-fa fa-thumbs-down" : "x-fa fa-thumbs-up" }',
                     tooltip: '{record.active ? "Desactivar" : "Activar"}'
                 },
@@ -102,7 +110,7 @@ Ext.define('Melisa.security.view.desktop.users.view.Identities', {
                         
                         return message + (
                             record.get('active') ? 'desactivar' : 'activar'
-                        ) + ' el perfil?';
+                        ) + ' el rol?';
                     }
                 }
             }
@@ -119,10 +127,7 @@ Ext.define('Melisa.security.view.desktop.users.view.Identities', {
         {
             ptype: 'autofilters',
             filters: {
-                displayEspecific: {
-                    operator: 'like'
-                },
-                profile: {
+                role: {
                     operator: 'like'
                 }
             },
@@ -134,16 +139,13 @@ Ext.define('Melisa.security.view.desktop.users.view.Identities', {
         {
             ptype: 'floatingbutton',
             configButton: {
+                handler: 'moduleRun',
                 iconCls: 'x-fa fa-plus',
                 scale: 'large',
-                tooltip: 'Agregar identidad',
+                tooltip: 'Agregar rol',
                 bind: {
-                    melisa: '{modules.identitiesAdd}',
-                    hidden: '{!modules.identitiesAdd.allowed}'
-                },
-                listeners: {
-                    click: 'moduleRun',
-                    loaded: 'onLoadedModuleAsociate'
+                    melisa: '{modules.add}',
+                    hidden: '{!modules.add.allowed}'
                 }
             }
         }

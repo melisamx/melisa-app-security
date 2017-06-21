@@ -30,7 +30,7 @@ class AddModule extends Outbuildings
                     'success'=>'Usuario agregado',
                     'txtName'=>'Nombre',
                     'btnSave'=>'Guardar',
-                    'frmMessageLoading'=>'Guardando cambios'
+                    'saving'=>'Guardando cambios'
                 ],
             ]
         ];        

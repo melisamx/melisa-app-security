@@ -1,0 +1,21 @@
+{
+    "name": "Agregar perfiles privilegiados",
+    "url": "/security.php/modules/rbacIdentities/add/",
+    "description": "Módulo interfaz para agregar pefiles privilegiados",
+    "nameSpace": "Melisa.security.view.desktop.rbacIdentities.add.Wrapper",
+    "task": {
+        "key": "task.security.rbacIdentities.add.access",
+        "name": "Acceso a agregar perfiles privilegiados",
+        "description": "Permitir acceso a agregar perfiles privilegiados",
+        "pattern": "access"
+    },
+    "option": {
+        "key": "option.security.rbacIdentities.add.access",
+        "name": "Opción para agregar perfiles privilegiados",
+        "text": "Agregar perfiles"
+    },
+    "event": {
+        "key": "event.security.rbacIdentities.add.access",
+        "description": "Acceso al módulo agregar perfiles privilegiados"
+    }
+}

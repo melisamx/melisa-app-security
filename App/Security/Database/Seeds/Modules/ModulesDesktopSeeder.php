@@ -18,6 +18,23 @@ class ModulesDesktopSeeder extends InstallSeeder
         $this->scopes();
         $this->passwordless();
         $this->identities();
+        $this->rbacRoles();
+        $this->rbacIdentities();
+    }
+    
+    public function rbacIdentities()
+    {
+        $this->installModuleJson('Desktop/RbacIdentities', [
+            'add',
+        ]);
+    }
+    
+    public function rbacRoles()
+    {
+        $this->installModuleJson('Desktop/RbacRoles', [
+            'add',
+            'view',
+        ]);
     }
     
     public function passwordless()

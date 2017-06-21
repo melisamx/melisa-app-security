@@ -1,0 +1,11 @@
+{
+    "name": "Paginar lista de tareas privilegiadas de un rol",
+    "url": "/security.php/rbacTasks/",
+    "description": "Módulo para paginar lista de tareas privilegiadas de rol",
+    "task": {
+        "key": "task.security.rbacTasks.paging",
+        "name": "Paginar lista de tareas privilegiadas de rol",
+        "description": "Permitir paginar lista de tareas privilegiadas de rol",
+        "pattern": "read"
+    }
+}

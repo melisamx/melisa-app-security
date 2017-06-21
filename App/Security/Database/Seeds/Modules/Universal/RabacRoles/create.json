@@ -1,0 +1,15 @@
+{
+    "name": "Crear rol",
+    "url": "/security.php/rbacRoles/",
+    "description": "Módulo para crear rol",
+    "task": {
+        "key": "task.security.rbacRoles.create",
+        "name": "Acceso a crear rol",
+        "description": "Permitir crear rol",
+        "pattern": "create"
+    },
+    "event": {
+        "key": "event.security.rbacRoles.create.success",
+        "description": "Rol creado"
+    }
+}

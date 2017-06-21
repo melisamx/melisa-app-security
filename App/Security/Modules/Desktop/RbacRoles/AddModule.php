@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Security\Modules\Desktop\Identities;
+namespace App\Security\Modules\Desktop\RbacRoles;
 
 use App\Core\Logics\Modules\Outbuildings;
 
@@ -12,7 +12,7 @@ use App\Core\Logics\Modules\Outbuildings;
 class AddModule extends Outbuildings
 {
     
-    public $event = 'security.identities.add.access';
+    public $event = 'security.rbacRoles.add.access';
     
     public function dataDictionary()
     {        
@@ -21,17 +21,15 @@ class AddModule extends Outbuildings
             'data'=>[
                 'token'=>csrf_token(),
                 'modules'=>[
-                    'submit'=>$this->module('task.security.identities.create'),
-                    'profiles'=>$this->module('task.security.profiles.paging'),
+                    'submit'=>$this->module('task.security.rbacRoles.create'),
                 ],
                 'wrapper'=>[
-                    'title'=>'Agregar perfil'
+                    'title'=>'Agregar rol'
                 ],
                 'i18n'=>[
-                    'success'=>'Perfil agregado',
-                    'txtName'=>'Nombre',
-                    'btnSave'=>'Guardar',
-                    'saving'=>'Guardando identidad'
+                    'success'=>'Rol agregado',
+                    'btnSave'=>'Agregar rol',
+                    'saving'=>'Agregando rol'
                 ],
             ]
         ];        

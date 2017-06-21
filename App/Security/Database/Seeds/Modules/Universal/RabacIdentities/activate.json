@@ -1,0 +1,15 @@
+{
+    "name": "Activar perfil privilegiado de rol",
+    "url": "/security.php/rbacIdentities/activate/",
+    "description": "Módulo para activar perfil privilegiado de rol",
+    "task": {
+        "key": "task.security.rbacIdentities.activate",
+        "name": "Acceso a activar perfil privilegiado de rol",
+        "description": "Permitir activar perfil privilegiado de rol",
+        "pattern": "update"
+    },
+    "event": {
+        "key": "event.security.rbacIdentities.activate.success",
+        "description": "Perfil privilegiado de rol activado"
+    }
+}
