@@ -31,6 +31,7 @@ class WithGroupCriteria extends Criteria
                 'sgs.active as groupSystemActive',
             ])
             ->where('g.key', $input['key'])
+            ->orWhere('g.key', '*')
             ->orderBy('sg.order')
             ->orderBy('sgs.order');        
     }

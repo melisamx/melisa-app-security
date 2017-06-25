@@ -32,6 +32,12 @@ class SystemsSecuritySeeder extends InstallSeeder
         ], [
             'description'=>'Security Application Roles Scope Task'
         ]);        
+        
+        SystemsSecurity::updateOrCreate([
+            'key'=>'rbac',
+        ], [
+            'description'=>'Security Role Based Access Control'
+        ]);        
     }
     
 }

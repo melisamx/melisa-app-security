@@ -17,6 +17,7 @@ class SecurityGroupsSeeder extends InstallSeeder
     public function run()
     {        
         $this->installSecurityGroup('Goods', 'usergod', [
+            '*',
             'app.security.users.show.system',
             'app.security.profiles.show.system',
         ]);

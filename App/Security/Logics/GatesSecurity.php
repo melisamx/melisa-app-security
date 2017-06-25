@@ -76,19 +76,33 @@ class GatesSecurity
         return $this->error($message, $data);
     }
     
-    public function runGroupSystems($gate)
-    {        
+    public function getGroupsGates($gate)
+    {
         $securityGroupsGates = $this->securityGroupsGates->getByCriteria($this->sggCriteria, [
             'key'=>$gate->key
         ]);
         
         if( !$securityGroupsGates->count()) {
-            $this->debug('The gate is not referenced in any group, action allowed');
-            return true;
+            $this->error('The gate {g} is not referenced in any group, action allowed', [
+                'g'=>$gate->key
+            ]);
+            return false;
+        }
+        
+        return $securityGroupsGates;
+    }
+    
+    public function runGroupSystems($gate)
+    {        
+        $securityGroupsGates = $this->getGroupsGates($gate);
+        
+        if( !$securityGroupsGates) {
+            return false;
         }
         
         $securityGroups = $securityGroupsGates->groupBy('groupName');
         $groups = [];
+        $oneAllowed = false;
         
         foreach($securityGroups as $name => $groupItems) {
             $firts = $groupItems->first();
@@ -108,10 +122,11 @@ class GatesSecurity
             $result = $this->evaluateGroup($name, $groupItems, $groups[$name]['oneAllowed']);
             
             if( $result) {
+                $oneAllowed = true;
                 $this->debug('Success in group {g}', [
                     'g'=>$name
                 ]);
-                continue;
+                return true;
             }
             
             if( !$groups[$name]['required']) {
@@ -135,7 +150,7 @@ class GatesSecurity
             return false;            
         }
         
-        return true;        
+        return $oneAllowed;        
     }
     
     public function evaluateGroup($name, &$groupItems, $groupOneAllowed)
