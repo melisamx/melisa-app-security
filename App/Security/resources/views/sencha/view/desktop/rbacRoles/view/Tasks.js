@@ -11,13 +11,13 @@ Ext.define('Melisa.security.view.desktop.rbacRoles.view.Tasks', {
         {
             text: 'Nombre',
             dataIndex: 'task',
-            flex: 1
-        },
-        {
-            text: 'Clave',
-            dataIndex: 'taskKey',
             flex: 1,
-            hidden: true
+            renderer: function(value, col, record) {
+                return '<p style="font-weight: bold; margin: 0 0 25px 0;">' + 
+                    value + 
+                    '<small style="display: block;line-height: 0; font-weight: normal;">' + record.data.taskKey + '</small>'
+                    + '</p>';
+            }
         },
         {
             xtype: 'booleancolumn',

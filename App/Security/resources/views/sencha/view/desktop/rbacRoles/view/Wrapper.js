@@ -35,7 +35,7 @@ Ext.define('Melisa.security.view.desktop.rbacRoles.view.Wrapper', {
         {
             xtype: 'tabpanel',
             region: 'east',
-            width: '70%',
+            width: '80%',
             itemId: 'panDetails',
             split: true,
             listeners: {

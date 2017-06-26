@@ -19,7 +19,7 @@ class ApplicationSeeder extends InstallSeeder
             'description'=>'Application Security',
             'nameSpace'=>'Melisa.security',
             'typeSecurity'=>'art',
-            'version'=>'1.4.0'
+            'version'=>'1.5.0'
         ]);        
     }
     

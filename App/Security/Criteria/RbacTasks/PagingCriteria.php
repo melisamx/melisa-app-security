@@ -22,6 +22,14 @@ class PagingCriteria extends FilterCriteria
             'taskKey'=>'t.key',
         ]);
         
+        /* support filter by key tasks */
+        if( isset($input['filter'][1])) {
+            $builder = $builder->orWhere(function($query) use ($input) {
+                $query->where('t.key', 'like', '%' . $input['filter'][1]->value . '%')
+                    ->where('idRbacRol', $input['filter'][0]->value);
+            });
+        }
+        
         if( !$this->isAllowed('app.security.rbacTasks.show.system')) {
             $builder = $builder->where('rbacTasks.isSystem', false);
         }
