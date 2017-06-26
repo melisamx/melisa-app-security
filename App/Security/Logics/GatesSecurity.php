@@ -83,7 +83,7 @@ class GatesSecurity
         ]);
         
         if( !$securityGroupsGates->count()) {
-            $this->error('The gate {g} is not referenced in any group, action allowed', [
+            $this->showError('The gate {g} is not referenced in any group, action allowed', [
                 'g'=>$gate->key
             ]);
             return false;
@@ -148,6 +148,10 @@ class GatesSecurity
                 'ga'=>$gate->key
             ]);
             return false;            
+        }
+        
+        if( !$oneAllowed) {
+            $this->showError('Acción no permitida');
         }
         
         return $oneAllowed;        
