@@ -45,7 +45,8 @@ class RbacLogic
     }
     
     public function isValidTasks(&$tasks)
-    {        
+    {
+        $flag = false;
         foreach($tasks as $task) {
             
             if( !$task->active) {
@@ -60,11 +61,14 @@ class RbacLogic
                 continue;
             }
             
-            return true;
+            if( !$task->roleIdentittyActive) {
+                continue;
+            }
             
+            $flag = true;            
         }
         
-        return false;        
+        return $flag;
     }
     
     public function getTasks($gate, $idIdentity)
