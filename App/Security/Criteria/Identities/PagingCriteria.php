@@ -16,11 +16,16 @@ class PagingCriteria extends FilterCriteria
     public function apply($model, RepositoryInterface $repository, array $input = [])
     {
         $builder = parent::apply($model, $repository, $input);
+        
+        if( isset($input['query'])) {
+            $builder = $builder->where('identities.displayEspecific', 'like', '%' . $input['query'] . '%');
+        }
         return $builder
             ->select([
                 'identities.*',
                 'ui.idUser',
-                'p.name as profile'
+                'p.name as profile',
+                'p.icon as profileCls'
             ])
             ->join('usersIdentities as ui', 'ui.idIdentity', '=', 'identities.id')
             ->join('users as u', 'u.id', '=', 'ui.idUser')
