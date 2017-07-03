@@ -17,6 +17,14 @@ class ModulesUniversalSeeder extends InstallSeeder
         $this->rbacRoles();
         $this->rbacTasks();
         $this->rbacIdentities();
+        $this->myUser();
+    }
+    
+    public function myUser()
+    {
+        $this->installModuleJson('Universal/My/User', [
+            'changePass',
+        ]);
     }
     
     public function rbacIdentities()

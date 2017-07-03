@@ -12,6 +12,7 @@ Ext.define('Melisa.security.view.desktop.rbacIdentities.add.Wrapper', {
     defaultFocus: 'txtName',
     controller: 'securityRbacIdentitiesAdd',
     width: 400,
+    height: 400,
     viewModel: {
         type: 'securityRbacIdentitiesAdd'
     },    

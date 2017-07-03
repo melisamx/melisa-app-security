@@ -13,6 +13,7 @@ Ext.define('Melisa.security.view.desktop.rbacRoles.add.Wrapper', {
         eventSuccess: 'app.security.rbacRoles.create.success'
     },
     width: 400,
+    height: 540,
     viewModel: {},    
     items: [
         {

@@ -2,6 +2,10 @@ Ext.define('Melisa.security.view.desktop.identities.ComboDefault', {
     extend: 'Melisa.view.desktop.ComboDefault',
     alias: 'widget.securityIdentitiesComboDefault',
     
+    requires: [
+        'Melisa.view.desktop.ComboDefault'
+    ],
+    
     pageSize: 25,
     displayField: 'displayEspecific',
     tpl: Ext.create('Ext.XTemplate',

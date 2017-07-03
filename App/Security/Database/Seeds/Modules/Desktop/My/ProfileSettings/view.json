@@ -1,0 +1,30 @@
+{
+    "name": "Ver sus ajustes de perfil",
+    "url": "/security.php/modules/my/profile/settings/view/",
+    "description": "Módulo interfaz para ver sus ajustes de perfil",
+    "nameSpace": "Melisa.security.view.desktop.my.profile.settings.view.Wrapper",
+    "task": {
+        "key": "task.security.my.profile.settings.view.access",
+        "name": "Acceso a ver sus ajustes de perfil",
+        "description": "Permitir acceso a ver sus ajustes de perfil",
+        "pattern": "access"
+    },
+    "option": {
+        "key": "option.security.my.profile.settings.view.access",
+        "name": "Opción para ver sus ajustes de perfil",
+        "text": "Mis ajustes de perfil",
+        "iconClassSmall": "x-fa fa fa-user-circle",
+        "iconClassMedium": "x-fa fa fa-user-circle",
+        "iconClassLarge": "x-fa fa fa-user-circle"
+    },
+    "asset": {
+        "id": "asset.security.my.profile.settings.view",
+        "type": "css",
+        "name": "CSS my profile settings",
+        "path": "/security/css/my-profile-settings.css"
+    },
+    "event": {
+        "key": "event.security.my.profile.settings.view.access",
+        "description": "Acceso al módulo ver sus ajustes de perfil"
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "name": "Modificar contraseña",
+    "url": "/security.php/my/user/changePass/",
+    "description": "Módulo para cambiar contraseña",
+    "task": {
+        "key": "task.security.my.user.changePass",
+        "name": "Acceso a cambiar contraseña",
+        "description": "Permitir cambiar contraseña",
+        "pattern": "update"
+    },
+    "event": {
+        "key": "event.security.my.user.changePass.success",
+        "description": "Usuario cambio su contraseña"
+    }
+}

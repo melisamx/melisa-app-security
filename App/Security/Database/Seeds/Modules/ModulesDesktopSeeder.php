@@ -20,6 +20,22 @@ class ModulesDesktopSeeder extends InstallSeeder
         $this->identities();
         $this->rbacRoles();
         $this->rbacIdentities();
+        $this->myProfileSettings();
+        $this->myUser();
+    }
+    
+    public function myUser()
+    {
+        $this->installModuleJson('Desktop/My/User', [
+            'changePass',
+        ]);
+    }
+    
+    public function myProfileSettings()
+    {
+        $this->installModuleJson('Desktop/My/ProfileSettings', [
+            'view',
+        ]);
     }
     
     public function rbacIdentities()

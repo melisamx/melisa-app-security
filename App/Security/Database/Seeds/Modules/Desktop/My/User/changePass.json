@@ -1,0 +1,24 @@
+{
+    "name": "Cambiar contraseña",
+    "url": "/security.php/modules/my/user/changePass/",
+    "description": "Módulo interfaz para cambiar contraseña",
+    "nameSpace": "Melisa.security.view.desktop.my.user.changePass.view.Wrapper",
+    "task": {
+        "key": "task.security.my.user.changePass.view.access",
+        "name": "Acceso a cambiar contraseña",
+        "description": "Permitir acceso a cambiar contraseña",
+        "pattern": "update"
+    },
+    "option": {
+        "key": "option.security.my.user.changePass.view.access",
+        "name": "Opción para cambiar contraseña",
+        "text": "Cambiar contraseña",
+        "iconClassSmall": "x-fa fa fa-key",
+        "iconClassMedium": "x-fa fa fa-key",
+        "iconClassLarge": "x-fa fa fa-key"
+    },
+    "event": {
+        "key": "event.security.my.user.changePass.view.access",
+        "description": "Acceso al módulo cambiar contraseña"
+    }
+}

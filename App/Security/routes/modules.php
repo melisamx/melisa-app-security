@@ -35,3 +35,10 @@ Route::group([
 ], function() {    
     require realpath(base_path() . '/routes/modules/rbacIdentities.php');    
 });
+
+Route::group([
+    'prefix'=>'my',
+    'namespace' =>'My'
+], function() {    
+    require realpath(base_path() . '/routes/my.php');    
+});
