@@ -11,6 +11,7 @@ Ext.define('Melisa.security.view.desktop.identities.add.Wrapper', {
     iconCls: 'x-fa fa-users',
     defaultFocus: 'txtDisplayEspecific',
     width: 300,
+    height: 400,
     controller: 'securityIdentitiesAdd',
     viewModel: {
         type: 'securityIdentitiesAdd'
