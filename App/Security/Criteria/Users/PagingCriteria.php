@@ -3,7 +3,6 @@
 namespace App\Security\Criteria\Users;
 
 use Melisa\Laravel\Criteria\FilterCriteria;
-use Melisa\Repositories\Contracts\RepositoryInterface;
 use Melisa\core\LogicBusiness;
 
 /**
@@ -15,7 +14,7 @@ class PagingCriteria extends FilterCriteria
 {
     use LogicBusiness;
     
-    public function apply($model, RepositoryInterface $repository, array $input = [])
+    public function apply($model, $repository, array $input = [])
     {        
         $builder = parent::apply($model, $repository, $input);
         

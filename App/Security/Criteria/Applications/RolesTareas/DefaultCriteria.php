@@ -3,7 +3,6 @@
 namespace App\Security\Criteria\Applications\RolesTareas;
 
 use Melisa\Repositories\Criteria\Criteria;
-use Melisa\Repositories\Contracts\RepositoryInterface;
 
 /**
  * 
@@ -13,7 +12,7 @@ use Melisa\Repositories\Contracts\RepositoryInterface;
 class DefaultCriteria extends Criteria
 {
     
-    public function apply($model, RepositoryInterface $repository, array $input = [])
+    public function apply($model, $repository, array $input = [])
     {        
         return $model->join('applicationsRoles as ar', 'ar.id', '=', 'applicationsRT.idApplicationRol')
             ->join('applications as a', 'a.id', '=', 'ar.idApplication')

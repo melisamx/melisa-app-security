@@ -3,7 +3,6 @@
 namespace App\Security\Criteria\SecurityGroups\Gates;
 
 use Melisa\Repositories\Criteria\Criteria;
-use Melisa\Repositories\Contracts\RepositoryInterface;
 
 /**
  * 
@@ -13,7 +12,7 @@ use Melisa\Repositories\Contracts\RepositoryInterface;
 class WithGroupCriteria extends Criteria
 {
     
-    public function apply($model, RepositoryInterface $repository, array $input = [])
+    public function apply($model, $repository, array $input = [])
     {        
         return $model->join('gates as g', 'g.id', '=', 'securityGroupsGates.idGate')
             ->join('securityGroups as sg', 'sg.id', '=', 'securityGroupsGates.idSecurityGroup')

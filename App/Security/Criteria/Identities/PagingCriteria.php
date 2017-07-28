@@ -3,7 +3,6 @@
 namespace App\Security\Criteria\Identities;
 
 use Melisa\Laravel\Criteria\FilterCriteria;
-use Melisa\Repositories\Contracts\RepositoryInterface;
 
 /**
  * 
@@ -13,7 +12,7 @@ use Melisa\Repositories\Contracts\RepositoryInterface;
 class PagingCriteria extends FilterCriteria
 {
     
-    public function apply($model, RepositoryInterface $repository, array $input = [])
+    public function apply($model, $repository, array $input = [])
     {
         $builder = parent::apply($model, $repository, $input);
         
