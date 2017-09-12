@@ -76,3 +76,12 @@ Route::group([
 ], function() {    
     require realpath(base_path() . '/routes/modules/rbacIdentities.php');    
 });
+
+Route::get('bitacora', function() {
+    $result = \App\Core\Models\Binnacle::with([
+        'event'
+    ])->orderBy('createdAt', 'desc')->paginate(100);
+    return view('layouts/binnacle', [
+        'report'=>$result
+    ]);
+});
