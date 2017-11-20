@@ -11,15 +11,9 @@
 |
 */
 
-require_once __DIR__ . '/../App/Security/Application.php';
+use App\Security\Application;
 
-$app = new App\Security\Application(
-    [
-        'base'=>  realpath(__DIR__ . '/../App/Security'),
-        'storage'=> realpath(__DIR__ . '/../App/Security/storage'),
-        'storageSession'=>realpath(__DIR__ . '/../storage/framework/sessions'),
-    ]
-);
+$app = new App\Security\Application(realpath(__DIR__ . '/../App/Security'));
 
 /*
 |--------------------------------------------------------------------------
