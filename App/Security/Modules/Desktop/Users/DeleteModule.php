@@ -1,4 +1,6 @@
-<?php namespace App\Security\Modules\Users;
+<?php
+
+namespace App\Security\Modules\Users;
 
 use App\Core\Logics\Modules\Outbuildings;
 
@@ -12,8 +14,8 @@ class DeleteModule extends Outbuildings
     
     public $event = 'security.users.delete.access';
     
-    public function dataDictionary() {
-        
+    public function dataDictionary()
+    {        
         return [
             'success'=>true,
             'data'=>[
@@ -31,8 +33,7 @@ class DeleteModule extends Outbuildings
                     ],
                 ]
             ]
-        ];
-        
+        ];        
     }
     
 }

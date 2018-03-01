@@ -19,7 +19,8 @@ class ApplicationSeeder extends InstallSeeder
             'description'=>'Application Security',
             'nameSpace'=>'Melisa.security',
             'typeSecurity'=>'art',
-            'version'=>'1.9.0'
+            'version'=>'1.10.0',
+            'comments'=>'Se agrego endpoint para autentificación oAuth'
         ]);
     }
     

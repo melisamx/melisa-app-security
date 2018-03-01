@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Security\Logics\Users\Avatars;
+namespace App\Security\Logics\Users\Identities;
 
 use App\Core\Repositories\UsersRepository;
 

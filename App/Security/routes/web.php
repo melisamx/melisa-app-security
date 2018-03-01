@@ -80,7 +80,7 @@ Route::group([
 Route::get('bitacora', function() {
     $result = \App\Core\Models\Binnacle::with([
         'event'
-    ])->orderBy('createdAt', 'desc')->paginate(100);
+    ])->orderBy('createdAt', 'desc')->paginate(500);
     return view('layouts/binnacle', [
         'report'=>$result
     ]);

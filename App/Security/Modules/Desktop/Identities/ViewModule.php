@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Security\Modules\Desktop\Users;
+namespace App\Security\Modules\Desktop\Identities;
 
 use App\Core\Logics\Modules\Outbuildings;
 
