@@ -168,7 +168,6 @@ return [
          * Package Service Providers...
          */
         Laravel\Passport\PassportServiceProvider::class,
-        Optimus\ApiConsumer\Provider\LaravelServiceProvider::class,
 
         /*
          * Application Service Providers...
