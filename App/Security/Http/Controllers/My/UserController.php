@@ -14,7 +14,10 @@ use App\Security\Logics\My\User\ChangePassLogic;
 class UserController extends Controller
 {
     
-    public function changePass(ChangePassRequest $request, ChangePassLogic $logic)
+    public function changePass(
+        ChangePassRequest $request, 
+        ChangePassLogic $logic
+    )
     {        
         return $this->responseJson($logic, $request);
     }

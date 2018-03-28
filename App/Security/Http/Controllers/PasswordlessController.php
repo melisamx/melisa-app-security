@@ -1,4 +1,6 @@
-<?php namespace App\Security\Http\Controllers;
+<?php
+
+namespace App\Security\Http\Controllers;
 
 use Melisa\Laravel\Http\Controllers\Controller;
 use Melisa\Laravel\Logics\PagingLogics;
@@ -16,16 +18,21 @@ use App\Security\Criteria\Passwordless\WithUserCriteria;
 class PasswordlessController extends Controller
 {
     
-    public function paging(PagingRequest $request, PasswordlessRepository $repository, WithUserCriteria $criteria)
-    {
-        
-        $logic = new PagingLogics($repository, $criteria);
-        
-        return $logic->init($request->allValid());
-        
+    public function paging(
+        PagingRequest $request, 
+        PasswordlessRepository $repository, 
+        WithUserCriteria $criteria
+    )
+    {        
+        $logic = new PagingLogics($repository, $criteria);        
+        $result = $logic->init($request->allValid());
+        return response()->paging($result);
     }
     
-    public function create(CreateRequest $request, CreateLogic $logic)
+    public function create(
+        CreateRequest $request, 
+        CreateLogic $logic
+    )
     {
 //        exit(dd($request->user()));
         $result = $logic->init($request->allValid());

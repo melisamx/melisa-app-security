@@ -3,7 +3,7 @@
 namespace App\Security\Http\Controllers;
 
 use Melisa\Laravel\Http\Controllers\Controller;
-use Melisa\Laravel\Logics\PagingLogics;
+use Melisa\Laravel\Logics\PagingLogic;
 
 use App\Security\Http\Requests\Users\PagingRequest;
 use App\Security\Http\Requests\Users\DeactivateRequest;
@@ -28,31 +28,48 @@ use App\Security\Criteria\Users\PagingCriteria;
 class UsersController extends Controller
 {
     
-    public function paging(PagingRequest $request, UsersRepository $repository, PagingCriteria $criteria)
+    public function paging(
+        PagingRequest $request, 
+        UsersRepository $repository, 
+        PagingCriteria $criteria
+    )
     {        
-        $logic = new PagingLogics($repository, $criteria);        
-        return $logic->init($request->allValid());        
+        $logic = new PagingLogic($repository, $criteria);        
+        $result = $logic->init($request->allValid());
+        return response()->paging($result);
     }
     
-    public function deactivate(DeactivateRequest $request, DeactivateLogic $logic)
+    public function deactivate(
+        DeactivateRequest $request, 
+        DeactivateLogic $logic
+    )
     {      
         $result = $logic->init($request->allValid());
         return response()->data($result);
     }
     
-    public function activate(ActivateRequest $request, ActivateLogic $logic)
+    public function activate(
+        ActivateRequest $request, 
+        ActivateLogic $logic
+    )
     {      
         $result = $logic->init($request->allValid());
         return response()->data($result);
     }
     
-    public function create(CreateRequest $request, CreateLogic $logic)
+    public function create(
+        CreateRequest $request, 
+        CreateLogic $logic
+    )
     {   
         $result = $logic->init($request->allValid());
         return response()->data($result);
     }
     
-    public function delete(DeleteRequest $request, DeleteLogic $logic)
+    public function delete(
+        DeleteRequest $request, 
+        DeleteLogic $logic
+    )
     {   
         $result = $logic->init($request->allValid());
         return response()->data($result);

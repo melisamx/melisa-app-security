@@ -1,7 +1,9 @@
-<?php namespace App\Security\Http\Controllers;
+<?php
+
+namespace App\Security\Http\Controllers;
 
 use Melisa\Laravel\Http\Controllers\Controller;
-use Melisa\Laravel\Logics\PagingLogics;
+use Melisa\Laravel\Logics\PagingLogic;
 use Melisa\Laravel\Logics\CreateLogic;
 use Melisa\Laravel\Logics\DeleteLogic;
 
@@ -20,38 +22,39 @@ use App\Security\Criteria\Scopes\PagingCriteria;
 class ScopesController extends Controller
 {
     
-    public function paging(PagingRequest $request, ScopesRepository $repository, PagingCriteria $criteria) {
-        
-        $logic = new PagingLogics($repository, $criteria);
-        
-        return $logic->init($request->allValid());
-        
+    public function paging(
+        PagingRequest $request,
+        ScopesRepository $repository, 
+        PagingCriteria $criteria
+    )
+    {        
+        $logic = new PagingLogic($repository, $criteria);        
+        $result = $logic->init($request->allValid());
+        return response()->paging($result);
     }
     
-    public function create(CreateRequest $request, ScopesRepository $repository)
-    {
-        
-        $logic = new CreateLogic($repository);
-        
+    public function create(
+        CreateRequest $request, 
+        ScopesRepository $repository
+    )
+    {        
+        $logic = new CreateLogic($repository);        
         $result = $logic
-                ->setFireEvent('event.security.scopes.create.success')
-                ->init($request->allValid());
-        
-        return response()->data($result);
-        
+            ->setFireEvent('event.security.scopes.create.success')
+            ->init($request->allValid());        
+        return response()->data($result);        
     }
     
-    public function delete(DeleteRequest $request, ScopesRepository $repository)
-    {
-        
-        $logic = new DeleteLogic($repository);
-        
+    public function delete(
+        DeleteRequest $request, 
+        ScopesRepository $repository
+    )
+    {        
+        $logic = new DeleteLogic($repository);        
         $result = $logic
-                ->setFireEvent('event.security.scopes.delete.success')
-                ->init($request->allValid());
-        
-        return response()->data($result);
-        
+            ->setFireEvent('event.security.scopes.delete.success')
+            ->init($request->allValid());        
+        return response()->data($result);        
     }
     
 }

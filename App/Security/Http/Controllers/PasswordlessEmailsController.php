@@ -1,7 +1,9 @@
-<?php namespace App\Security\Http\Controllers;
+<?php
+
+namespace App\Security\Http\Controllers;
 
 use Melisa\Laravel\Http\Controllers\Controller;
-use Melisa\Laravel\Logics\PagingLogics;
+use Melisa\Laravel\Logics\PagingLogic;
 use Melisa\Laravel\Criteria\FilterCriteria;
 use App\Security\Http\Requests\Passwordless\Emails\PagingRequest;
 use App\Security\Repositories\PasswordlessEmailsRepository;
@@ -14,12 +16,15 @@ use App\Security\Repositories\PasswordlessEmailsRepository;
 class PasswordlessEmailsController extends Controller
 {
     
-    public function paging(PagingRequest $request, PasswordlessEmailsRepository $repository, FilterCriteria $criteria) {
-        
-        $logic = new PagingLogics($repository, $criteria);
-        
-        return $logic->init($request->allValid());
-        
+    public function paging(
+        PagingRequest $request, 
+        PasswordlessEmailsRepository $repository, 
+        FilterCriteria $criteria
+    )
+    {        
+        $logic = new PagingLogic($repository, $criteria);
+        $result = $logic->init($request->allValid());
+        return response()->paging($result);
     }
     
 }
