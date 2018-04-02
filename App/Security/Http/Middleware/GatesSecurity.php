@@ -30,7 +30,7 @@ class GatesSecurity
     
     public function cancelAction(&$request)
     {
-        if($request->ajax() || $request->expectsJson()) {
+        if($request->ajax() || $request->isJson()) {
             melisa('logger')->error('User not logged in');
             return response()->data(false);
         }
