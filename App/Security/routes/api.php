@@ -18,4 +18,5 @@ Route::group([
         Route::get('/', 'UsersController@paging')
             ->middleware('gate:task.security.users.paging');
     });
+    Route::get('menus/{key}', 'MenusController@byKey');
 });
