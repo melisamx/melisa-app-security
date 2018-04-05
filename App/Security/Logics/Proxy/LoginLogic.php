@@ -114,16 +114,25 @@ class LoginLogic
      */
     public function logout()
     {
-        $accessToken = app('auth')->user()->token();
+        $user = app('auth')->user();
         
-        $refreshToken = DB::table('oauth_refresh_tokens')
+        if (!$user) {
+            return false;
+        }
+        
+        $accessToken = $user->token();
+        
+        if (!$accessToken) {
+            return false;
+        }
+        
+        $refreshToken = \DB::table('oauth_refresh_tokens')
             ->where('access_token_id', $accessToken->id)
             ->update([
                 'revoked'=>true
             ]);
         
         $accessToken->revoke();
-        $this->cookie->queue($this->cookie->forget(self::REFRESH_TOKEN));
     }
     
 }

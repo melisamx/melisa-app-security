@@ -12,6 +12,7 @@ Route::group([
     'namespace'=>'v1',
     'middleware'=>'auth:api'
 ], function() {
+    Route::post('logout', 'ProxyController@logout');
     Route::group([
         'prefix'=>'users'
     ], function() {

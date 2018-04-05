@@ -23,4 +23,12 @@ class ProxyController extends Controller
         return response()->data($result);
     }
     
+    public function logout(
+        LoginLogic $logic
+    )
+    {
+        $logic->logout();
+        return response()->data(true);
+    }
+    
 }

@@ -20,7 +20,7 @@ class ApplicationSeeder extends InstallSeeder
             'nameSpace'=>'Melisa.security',
             'typeSecurity'=>'art',
             'version'=>'1.10.0',
-            'comments'=>'Se agrego endpoint para autentificación oAuth'
+            'comments'=>'Se agrego endpoint para cerrar sesión'
         ]);
     }
     
